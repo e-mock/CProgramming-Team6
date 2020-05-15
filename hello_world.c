@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "hello.h"
 
 int add(int a, int b){
    int sum = a + b;
@@ -18,9 +19,11 @@ void deadCodeFunction(){
 
 int main() {
    printf("Hello World!");
-   printf("Hello again");
-   
-   int sum = add(2, 2);
+   hello_c();
+   hello_d();
+   hello_e();
+   hello_g();
+   hello_v();
    
    return 0;
 }

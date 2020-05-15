@@ -18,5 +18,5 @@ install:
 
 script:  
   - echo "Reached Script Section"
-  - gcc   	hello_world.c -o output
+  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c hello_world.c -o output
   - ./output
