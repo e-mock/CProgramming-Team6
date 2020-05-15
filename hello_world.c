@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include "hello.h"
 
-int add(int a, int b){
-   int sum = a + b;
-   printf("Added %d and %d to get sum %d", a, b, sum);
+// int add(int a, int b){
+//    int sum = a + b;
+//    printf("Added %d and %d to get sum %d", a, b, sum);
         
-   return sum;
-}
+//    return sum;
+// }
 
-int divide(int a, int b){
-   return a / b;
-}
+// int divide(int a, int b){
+//    return a / b;
+// }
 
-void deadCodeFunction(){
-   //function that is never called
-   int sum = add(1, 3);
-}
+// void deadCodeFunction(){
+//    //function that is never called
+//    int sum = add(1, 3);
+// }
 
 int main() {
    printf("Hello World!");
