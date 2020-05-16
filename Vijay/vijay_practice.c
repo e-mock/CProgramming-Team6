@@ -10,7 +10,7 @@ int hello_v() {
 }
 
 /* function to find the maximum value from a list of number*/
-int max_value()
+/*int max_value()
 {
 
 int list[10] = {2,3,4,5,6,1,19,25,4,15};
@@ -28,4 +28,4 @@ printf("The Maximum value in the list is %d",max_value);
 
 return max_value;
 
-}
+}*/
