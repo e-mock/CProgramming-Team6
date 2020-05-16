@@ -13,15 +13,8 @@ int hello_v() {
 int max_value()
 {
 
-int list[10];
+int list[10] = {2,3,4,5,6,1,19,25,4,15};
 int max_value = 0;
-
-printf("Enter the list of 10 numbers");
-
-for(int i=0;i<10;i++)
-{
-	scanf("%d", list[i]);
-}
 
 for(int j=0;j<10;j++)
 {
