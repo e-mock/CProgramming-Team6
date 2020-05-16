@@ -10,13 +10,13 @@ int hello_v() {
 }
 
 /* function to find the maximum value from a list of number*/
-/*int max_value()
+int max_value()
 {
 
 int list[10] = {2,3,4,5,6,1,19,25,4,15};
 int max_value = 0;
 
-for(int j=0;j<10;j++)
+/*for(int j=0;j<10;j++)
 {
 	if(max_value < list[j])
 	{
@@ -24,8 +24,8 @@ for(int j=0;j<10;j++)
 	}
 }
 
-printf("The Maximum value in the list is %d",max_value);
+printf("The Maximum value in the list is %d",max_value);*/
 
 return max_value;
 
-}*/
+}
