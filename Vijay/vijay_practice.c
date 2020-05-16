@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int hello_v() {
-   printf("Hello V.!");
+   printf("Welcome Team6.!");
    
    return 0;
 }
