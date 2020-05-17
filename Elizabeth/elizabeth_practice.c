@@ -11,6 +11,14 @@ int add(int a, int b){
    return sum;
 }
 
+void sortAscending(int* arr, int size){
+   int i = 0;
+
+   for(i = 0; i < size; i++){
+      printf("%d ", arr[i]);
+   }
+}
+
 // void getIntInputArray(int* arr, int max_size){
 //    printf("Enter an integer (-1 to quit)\n");
 //    int num = 0;
@@ -115,6 +123,9 @@ int hello_e() {
          printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_readings);
       }
    }
+
+
+   
    
    return 0;
 }

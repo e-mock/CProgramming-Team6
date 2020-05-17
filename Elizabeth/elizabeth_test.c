@@ -28,6 +28,15 @@ void test_add(void)
     CU_ASSERT(sum(-1, 1) == 0);
 }
 
+void test_temp_sensor_to_c(void){
+    bool success = false;
+    
+    CU_ASSERT(temp_sensor_converter(0, &success), -55.0);
+    CU_ASSERT(temp_sensor_converter(0, &success), -55);
+    CU_ASSERT(temp_sensor_converter(1023, &success), 125.0);
+    
+}
+
 int main() {
 
     CU_initialize_registry();
