@@ -21,7 +21,7 @@
 
 // }
 
-void test_add(void)
+/*void test_add(void)
 {
     CU_ASSERT(sum(2,2) == 4);
     CU_ASSERT(sum(0, 0) == 0);
@@ -50,4 +50,4 @@ int main() {
 
     return 0;
 
-}
+}*/
