@@ -11,45 +11,45 @@ int add(int a, int b){
    return sum;
 }
 
-void getIntInputArray(int* arr, int max_size){
-   printf("Enter an integer (-1 to quit)\n");
-   int num = 0;
-   // int max_size = sizeof(arr)/sizeof(int);
-   int size = 0;
-   int i = 0;
+// void getIntInputArray(int* arr, int max_size){
+//    printf("Enter an integer (-1 to quit)\n");
+//    int num = 0;
+//    // int max_size = sizeof(arr)/sizeof(int);
+//    int size = 0;
+//    int i = 0;
 
-   printf("The array was allocated space for %d ints", max_size);
+//    printf("The array was allocated space for %d ints", max_size);
 
-   while(num != -1 && size < max_size){
-      printf("Enter an integer (-1 to quit)\n");
-      scanf("%d", &num);
+//    while(num != -1 && size < max_size){
+//       printf("Enter an integer (-1 to quit)\n");
+//       scanf("%d", &num);
 
-      printf("Received int: %d\n", num);
-      arr[size] = num;
-      size++;
-   }
+//       printf("Received int: %d\n", num);
+//       arr[size] = num;
+//       size++;
+//    }
 
-   for(i = size; i < max_size; i++){
-      arr[i] = 0;
-   }
+//    for(i = size; i < max_size; i++){
+//       arr[i] = 0;
+//    }
 
-   if(size == max_size){
-      printf("Array is full\n");
-   }
+//    if(size == max_size){
+//       printf("Array is full\n");
+//    }
 
-   if(size > max_size){
-      printf("Array overflowed !!!\n");
-   }
+//    if(size > max_size){
+//       printf("Array overflowed !!!\n");
+//    }
 
-   printf("The array has values: ");
-   for(i = 0; i<max_size; i++){
-      printf("%d ", arr[i]);
-   }
+//    printf("The array has values: ");
+//    for(i = 0; i<max_size; i++){
+//       printf("%d ", arr[i]);
+//    }
 
-   printf("\n");
+//    printf("\n");
    
    
-}
+// }
 
 // takes temp_sensor_value that is an int between 0 and 1023 and converts it to a float temp_celsius between -55 and 125
 float temp_sensor_converter(int temp_sensor_value, bool* success){
@@ -92,9 +92,9 @@ float temp_c_to_f(float temp_c){
 int hello_e() {
    printf("Hello E.!\n");
 
-   int temp_sensor_readings[10];// = {0, 100, 1023, -1, 1024};
+   int temp_sensor_readings[] = {0, 100, 1023, -1, 1024};
    int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
-   getIntInputArray(temp_sensor_readings, number_readings);
+   // getIntInputArray(temp_sensor_readings, number_readings);
 
    
    int i = 0;
