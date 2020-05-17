@@ -7,12 +7,12 @@ const int TEMP_SENSE_MIN = 0;
 const int TEMP_SENSE_MAX = 1023;
 
 //slope of a line with endpoints (TEMP_SENSE_MIN, TEMP_C_MIN) and (TEMP_SENSE_MAX, TEMP_C_MAX) where temp_sense is on the x axis and temp_c is on the y axis
-const int TEMP_SLOPE = (TEMP_C_MAX - TEMP_C_MIN) / (1.0 * (TEMP_SENSE_MAX - TEMP_SENSE_MIN));
+/*const int TEMP_SLOPE = (TEMP_C_MAX - TEMP_C_MIN) / (1.0 * (TEMP_SENSE_MAX - TEMP_SENSE_MIN));
 
 int add(int a, int b){
    int sum = a + b;
    return sum;
-}
+}*/
 
 int hello_e() {
    printf("Hello E.!");
