@@ -21,7 +21,7 @@ int hello_e() {
 }
 
 // takes temp_sensor_value that is an int between 0 and 1023 and converts it to a float temp_celsius between -55 and 125
-/*float temp_sensor_converter(int temp_sensor_value, bool* success){
+float temp_sensor_converter(int temp_sensor_value, bool* success){
    float temp_celsius = 0;
    // 0 reading = -55 C temp, 1023 reading = 125 C temp, assuming linear relationship
 
@@ -49,4 +49,4 @@ int hello_e() {
       
    *success = true;
    return temp_celsius;
-}*/
+}
