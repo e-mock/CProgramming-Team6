@@ -1,6 +1,6 @@
 
-#include <CUnit/CUnit.h>
-#include <CUnit/Basic.h>
+// #include <CUnit/CUnit.h>
+// #include <CUnit/Headers/Basic.h>
 #include "hello.h"
 
 // int maxi(int i1, int i2)
@@ -32,11 +32,11 @@ int main() {
 
     CU_initialize_registry();
 
-    CU_pSuite suite = CU_add_suite("maxi_test", 0, 0);
+    CU_pSuite suite = CU_add_suite("test_add", 0, 0);
 
 
 
-    CU_add_test(suite, "maxi_fun", test_maxi);
+    CU_add_test(suite, "test_add", test_add);
 
 
 
