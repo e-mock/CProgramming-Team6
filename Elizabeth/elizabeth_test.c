@@ -28,11 +28,25 @@ void test_add(void)
 }
 
 void test_temp_c_to_f(void){
-    //                     temp C     tempF
-    CU_ASSERT(temp_c_to_f(-40.0) == -40.0);
-    CU_ASSERT(temp_c_to_f(0.0) == 32.0);    
-    CU_ASSERT(temp_c_to_f(25.0) == 77.0);
-    CU_ASSERT(temp_c_to_f(100.0) == 212.0);
+    float temp_f = -300.0;
+
+    float inputs[] = {-40.0, 0.0, 25.0, 100.0};
+    float expected_outputs[] = {-40.0, 32.0, 77.0, 212.0};
+
+    float tolerance = 0.1;
+
+    //num_tests has number of elements in inputs array
+    int num_tests = sizeof(inputs)/sizeof(inputs[0]); 
+
+    int i = 0;
+
+    for(i = 0; i < num_tests; i++){
+        CU_ASSERT(temp_sensor_converter(inputs[i], &success) >= expected_outputs[i] - tolerance);
+        CU_ASSERT(success == true); 
+
+        CU_ASSERT(temp_sensor_converter(inputs[i], &success) <= expected_outputs[i] + tolerance);
+        CU_ASSERT(success == true); 
+    }
 }
 
 void test_temp_sensor_to_c_valid(void){
@@ -56,18 +70,6 @@ void test_temp_sensor_to_c_valid(void){
         CU_ASSERT(temp_sensor_converter(inputs[i], &success) <= expected_outputs[i] + tolerance);
         CU_ASSERT(success == true); 
     }
-    // // expect -55.0
-    // CU_ASSERT(temp_sensor_converter(0, &success) >= -54.0);
-    // CU_ASSERT(success == true);    
-    
-    // // expect 34.912
-    // CU_ASSERT(temp_sensor_converter(511, &success) >= 34.912);
-    // CU_ASSERT(success == true);
-    
-    // // expect 125.0
-    // CU_ASSERT(temp_sensor_converter(1023, &success) == 125.0);
-    // CU_ASSERT(success == true);
-    
 }
 
 void test_temp_sensor_to_c_invalid(void){
