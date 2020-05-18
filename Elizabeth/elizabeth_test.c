@@ -39,30 +39,30 @@ void test_temp_sensor_to_c_valid(void){
     bool success = false;
     
     CU_ASSERT(temp_sensor_converter(0, &success) == -55.0);
-    CU_ASSERT(success, true);    
+    CU_ASSERT(success == true);    
     
     CU_ASSERT(temp_sensor_converter(511, &success) == 34.912);
-    CU_ASSERT(success, true);
+    CU_ASSERT(success == true);
     
     CU_ASSERT(temp_sensor_converter(1023, &success) == 125.0);
-    CU_ASSERT(success, true);
+    CU_ASSERT(success == true);
     
 }
 
 void test_temp_sensor_to_c_invalid(void){
-    bool success = false;
+    bool success = true;
     
     CU_ASSERT(temp_sensor_converter(-100, &success) == -100.0);
-    CU_ASSERT(success, false); 
+    CU_ASSERT(success == false); 
     
     CU_ASSERT(temp_sensor_converter(-1, &success) == -100.0);
-    CU_ASSERT(success, false);    
+    CU_ASSERT(success == false);    
     
     CU_ASSERT(temp_sensor_converter(1024, &success) == -100.0);
-    CU_ASSERT(success, false);
+    CU_ASSERT(success == false);
     
     CU_ASSERT(temp_sensor_converter(1100, &success) == -100.0);
-    CU_ASSERT(success, false);   
+    CU_ASSERT(success == false);   
     
 }
 
@@ -70,17 +70,17 @@ int main() {
 
     CU_initialize_registry();
 
-    CU_pSuite suite = CU_add_suite("test_add", 0, 0);
-    CU_pSuite suite = CU_add_suite("test_temp_c_to_f", 0, 0);
-    CU_pSuite suite = CU_add_suite("test_temp_sensor_to_c_valid", 0, 0);
-    CU_pSuite suite = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
+    CU_pSuite suite1 = CU_add_suite("test_add", 0, 0);
+    CU_pSuite suite2 = CU_add_suite("test_temp_c_to_f", 0, 0);
+    CU_pSuite suite3 = CU_add_suite("test_temp_sensor_to_c_valid", 0, 0);
+    CU_pSuite suite4 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
 
 
 
-    CU_add_test(suite, "test_add", test_add);
-    CU_add_test(suite, "test_temp_c_to_f", test_temp_c_to_f);
-    CU_add_test(suite, "test_temp_sensor_to_c_valid", test_temp_sensor_to_c_valid);
-    CU_add_test(suite, "test_temp_sensor_to_c_invalid", test_temp_sensor_to_c_invalid);
+    CU_add_test(suite1, "test_add", test_add);
+    CU_add_test(suite2, "test_temp_c_to_f", test_temp_c_to_f);
+    CU_add_test(suite3, "test_temp_sensor_to_c_valid", test_temp_sensor_to_c_valid);
+    CU_add_test(suite4, "test_temp_sensor_to_c_invalid", test_temp_sensor_to_c_invalid);
     
 
 
