@@ -95,7 +95,8 @@ float temp_sensor_converter(int temp_sensor_value, bool* success){
 // Converts temperature from Celsius to Fahrenheit
 float temp_c_to_f(float temp_c){
    float temp_f = (9.0/5.0) * temp_c + 32.0;
-   printf("Temperature %f C = %f F", temp_c, temp_f);
+   printf("Temperature %f C = %f F\n", temp_c, temp_f);
+   return temp_f;
 }
 
 int hello_e() {
@@ -121,7 +122,7 @@ int hello_e() {
       printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
       }
       else {
-         printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_readings);
+         printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_reading);
       }
    }
 
