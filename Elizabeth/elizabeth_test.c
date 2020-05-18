@@ -41,11 +41,10 @@ void test_temp_c_to_f(void){
     int i = 0;
 
     for(i = 0; i < num_tests; i++){
-        CU_ASSERT(temp_sensor_converter(inputs[i], &success) >= expected_outputs[i] - tolerance);
-        CU_ASSERT(success == true); 
-
-        CU_ASSERT(temp_sensor_converter(inputs[i], &success) <= expected_outputs[i] + tolerance);
-        CU_ASSERT(success == true); 
+        CU_ASSERT(temp_c_to_f(inputs[i]) >= expected_outputs[i] - tolerance);
+       
+        CU_ASSERT(temp_c_to_f(inputs[i]) <= expected_outputs[i] + tolerance);
+        
     }
 }
 
