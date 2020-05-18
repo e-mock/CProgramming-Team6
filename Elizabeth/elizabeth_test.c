@@ -22,9 +22,9 @@
 
 void test_add(void)
 {
-    CU_ASSERT(sum(2,2) == 4);
-    CU_ASSERT(sum(0, 0) == 0);
-    CU_ASSERT(sum(-1, 1) == 0);
+    CU_ASSERT(add(2,2) == 4);
+    CU_ASSERT(add(0, 0) == 0);
+    CU_ASSERT(add(-1, 1) == 0);
 }
 
 void test_temp_c_to_f(void){
