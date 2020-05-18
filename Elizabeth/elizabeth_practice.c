@@ -68,7 +68,7 @@ float temp_sensor_converter(int temp_sensor_value, bool* success){
       //change success to false
       printf("Temperature sensor value (%d) is not in the range of %d to %d, changing success to false.\n", temp_sensor_value, TEMP_SENSE_MIN, TEMP_SENSE_MAX);
       *success = false;
-      return -1;
+      return -100;
    }
 
    printf("Temperature sensor value (%d) is in the range of %d to %d\n Attempting conversion now ...\n", temp_sensor_value, TEMP_SENSE_MIN, TEMP_SENSE_MAX);
@@ -83,7 +83,7 @@ float temp_sensor_converter(int temp_sensor_value, bool* success){
       //change success to false
       printf("Temperature celsius value (%f) is not in the range of %f to %f, changing success to false.\n", temp_celsius, TEMP_C_MIN, TEMP_C_MAX);
       *success = false;
-      return -2;
+      return -200;
    }
 
    printf("Temperature sensor value (%d) was converted successfully to temperature %f C in the range of %f C to %f C.\n", temp_sensor_value, temp_celsius, TEMP_C_MIN, TEMP_C_MAX);
