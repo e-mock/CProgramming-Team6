@@ -28,8 +28,6 @@ void test_add(void)
 }
 
 void test_temp_c_to_f(void){
-    float temp_f = -300.0;
-
     float inputs[] = {-40.0, 0.0, 25.0, 100.0};
     float expected_outputs[] = {-40.0, 32.0, 77.0, 212.0};
 
@@ -50,7 +48,6 @@ void test_temp_c_to_f(void){
 
 void test_temp_sensor_to_c_valid(void){
     bool success = false;
-    float temp_c = -300.0;
 
     int inputs[] = {0, 511, 1023};
     float expected_outputs[] = {-55.0, 34.9, 125.0};

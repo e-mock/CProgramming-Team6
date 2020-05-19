@@ -101,55 +101,73 @@ float temp_c_to_f(float temp_c){
    return temp_f;
 }
 
-bool readSensorReadingsToArrays(int* temp_sensor_readings, float* temp_c_arr, float* temp_f_arr){
-   int sensor_readings_size = sizeof(temp_sensor_readings) / sizeof(temp_sensor_readings[0]);
-   int temp_f_size = sizeof(temp_f_arr) / sizeof(temp_f_arr[0]);
-   int temp_c_size = sizeof(temp_c_arr) / sizeof(temp_c_arr[0]);
+bool read_sensor_readings_to_arrays(int *temp_sensor_readings[], float *temp_c_arr[], float *temp_f_arr[], int number_readings){
+   bool success = true;
+   bool temp_success = false;
+   int reading;
+   float temp_c;
+   float temp_f;
 
-   printf("%d %d %d\n", sensor_readings_size, temp_f_size, temp_c_size);
+   int i;
 
-   if(sensor_readings_size != temp_f_size || sensor_readings_size != temp_c_size || temp_c_size != temp_f_size){
-      printf("Error, arrays are not the same length\n");
+   if(number_readings < 1){
+      printf("number_readings = %d, indicating empty array or error\n", number_readings);
       return false;
    }
 
-   return true;
+   for(i = 0; i < number_readings; i++){
+      reading = temp_sensor_readings[i];
+      temp_c = temp_sensor_converter(reading, &temp_success);
+
+      if(temp_success){
+         temp_f = temp_c_to_f(temp_c);
+
+         *temp_c_arr[i] = temp_c;
+         *temp_f_arr[i] = temp_f;
+      }
+      else{
+         printf("Error converting reading at index %d", i);
+      }
+
+      success &= temp_success;
+   }
+
+
+   for(i = 0; i<number_readings; i++){
+      printf("reading %d = %d C = %d F\n", temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
+   }
+
+   return success;
 
 }
 
 int hello_e() {
    printf("Hello E.!\n");
 
-   int temp_sensor_readings[] = {0, 100, 1023, -1, 1024};
+   int temp_sensor_readings[] = {0, 100, 1023};
    int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
    // getIntInputArray(temp_sensor_readings, number_readings);
 
-   
+
    int i = 0;
 
    bool success = false;
 
-   float temp_c_arr[number_readings];
-   float temp_f_arr[number_readings];
+   float temp_c;
+   float temp_f;
 
-   success = readSensorReadingsToArrays(temp_sensor_readings, temp_c_arr, temp_f_arr);
+   for(i = 0; i < number_readings; i++){
+      int temp_sensor_reading = temp_sensor_readings[i];
+      temp_c = temp_sensor_converter(temp_sensor_reading, &success);
 
-
-   // float temp_c;
-   // float temp_f;
-
-   // for(i = 0; i < number_readings; i++){
-   //    int temp_sensor_reading = temp_sensor_readings[i];
-   //    temp_c = temp_sensor_converter(temp_sensor_reading, &success);
-
-   //    if(success) {
-   //    temp_f = temp_c_to_f(temp_c);
-   //    printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
-   //    }
-   //    else {
-   //       printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_reading);
-   //    }
-   // }
+      if(success) {
+      temp_f = temp_c_to_f(temp_c);
+      printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
+      }
+      else {
+         printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_reading);
+      }
+   }
 
 
    
