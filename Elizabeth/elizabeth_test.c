@@ -69,19 +69,24 @@ void test_temp_sensor_to_c_valid(void){
 }
 
 void test_temp_sensor_to_c_invalid(void){
+    int inputs[] = {-100, -1, 1024, 1100};
+    float expected_outputs[] = {-100.0, -100.0, -100.0, -100.0};
     bool success = true;
     
-    CU_ASSERT(temp_sensor_converter(-100, &success) == -100.0);
-    CU_ASSERT(success == false); 
-    
-    CU_ASSERT(temp_sensor_converter(-1, &success) == -100.0);
-    CU_ASSERT(success == false);    
-    
-    CU_ASSERT(temp_sensor_converter(1024, &success) == -100.0);
-    CU_ASSERT(success == false);
-    
-    CU_ASSERT(temp_sensor_converter(1100, &success) == -100.0);
-    CU_ASSERT(success == false);   
+    float tolerance = 0.1;
+
+    //num_tests has number of elements in inputs array
+    int num_tests = sizeof(inputs)/sizeof(inputs[0]); 
+
+    int i = 0;
+
+    for(i = 0; i < num_tests; i++){
+        CU_ASSERT(temp_sensor_converter(inputs[i], &success) >= expected_outputs[i] - tolerance);
+        CU_ASSERT(success == true); 
+
+        CU_ASSERT(temp_sensor_converter(inputs[i], &success) <= expected_outputs[i] + tolerance);
+        CU_ASSERT(success == true); 
+    } 
     
 }
 
