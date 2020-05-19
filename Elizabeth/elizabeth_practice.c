@@ -6,60 +6,13 @@ const float TEMP_C_MAX = 125.0;
 const int TEMP_SENSE_MIN = 0;
 const int TEMP_SENSE_MAX = 1023;
 
+// adds 2 ints, stub for testing
 int add(int a, int b){
    int sum = a + b;
    return sum;
 }
 
-void sortAscending(int* arr, int size){
-   int i = 0;
-
-   for(i = 0; i < size; i++){
-      printf("%d ", arr[i]);
-   }
-}
-
-// void getIntInputArray(int* arr, int max_size){
-//    printf("Enter an integer (-1 to quit)\n");
-//    int num = 0;
-//    // int max_size = sizeof(arr)/sizeof(int);
-//    int size = 0;
-//    int i = 0;
-
-//    printf("The array was allocated space for %d ints", max_size);
-
-//    while(num != -1 && size < max_size){
-//       printf("Enter an integer (-1 to quit)\n");
-//       scanf("%d", &num);
-
-//       printf("Received int: %d\n", num);
-//       arr[size] = num;
-//       size++;
-//    }
-
-//    for(i = size; i < max_size; i++){
-//       arr[i] = 0;
-//    }
-
-//    if(size == max_size){
-//       printf("Array is full\n");
-//    }
-
-//    if(size > max_size){
-//       printf("Array overflowed !!!\n");
-//    }
-
-//    printf("The array has values: ");
-//    for(i = 0; i<max_size; i++){
-//       printf("%d ", arr[i]);
-//    }
-
-//    printf("\n");
-   
-   
-// }
-
-// takes temp_sensor_value that is an int between 0 and 1023 and converts it to a float temp_celsius between -55 and 125
+// Takes temp_sensor_value that is an int between 0 and 1023 and converts it to a float temp_celsius between -55 and 125
 float temp_sensor_converter(int temp_sensor_value, bool* success){
    float temp_celsius = 0;
    // 0 reading = -55 C temp, 1023 reading = 125 C temp, assuming linear relationship
@@ -101,16 +54,16 @@ float temp_c_to_f(float temp_c){
 }
 
 int hello_e() {
+   // Calls the functions in elizabeth_practice.c for seeing how they run in a limited way
    printf("Hello E.!\n");
 
-   int temp_sensor_readings[] = {0, 100, 1023, -1, 1024};
+   int temp_sensor_readings[] = {0, 100, 1023};
    int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
-   // getIntInputArray(temp_sensor_readings, number_readings);
-
-   
+ 
    int i = 0;
 
    bool success = false;
+
    float temp_c;
    float temp_f;
 
