@@ -86,9 +86,9 @@ void test_temp_sensor_to_c_invalid(void){
 }
 
 void test_sensor_readings_to_temp_c_and_temp_f_arrs_valid(void){
-    int temp_sensor_readings = {0, 511, 1023};
-    float expected_temp_c = {-55.0, 34.9, 125.0};
-    float expected_temp_f = {-67.0, 94.8, 257.0};
+    int temp_sensor_readings[] = {0, 511, 1023};
+    float expected_temp_c[] = {-55.0, 34.9, 125.0};
+    float expected_temp_f[] = {-67.0, 94.8, 257.0};
 
     float tolerance = 0.1;
 
@@ -118,7 +118,7 @@ void test_sensor_readings_to_temp_c_and_temp_f_arrs_valid(void){
 }
 
 void test_sensor_readings_to_temp_c_and_temp_f_arrs_invalid(void){
-    int temp_sensor_readings = {-2000, -1, 1024, 2000};
+    int temp_sensor_readings[] = {-2000, -1, 1024, 2000};
 
     float TEMP_C_IF_INVALID = -100.0;
     float TEMP_F_IF_INVALID = -200.0;  
