@@ -5,6 +5,8 @@ const float TEMP_C_MIN = -55.0;
 const float TEMP_C_MAX = 125.0;
 const int TEMP_SENSE_MIN = 0;
 const int TEMP_SENSE_MAX = 1023;
+const float TEMP_C_IF_INVALID = -100.0;
+const float TEMP_F_IF_INVALID = -200.0;
 
 // adds 2 ints, stub for testing
 int add(int a, int b)
@@ -69,9 +71,6 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
    float temp_c;
    float temp_f;
 
-   float TEMP_C_IF_INVALID = -100.0;
-   float TEMP_F_IF_INVALID = -200.0;
-
    for (i = 0; i < number_readings; i++)
    {
       int temp_sensor_reading = *(temp_sesnor_readings_ptr + i);
@@ -128,13 +127,18 @@ int hello_e()
 
    success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
 
-   printf("Done creating arrays, testing printing arr outside function\n");
+   if(success){
+      printf("Done creating arrays, testing printing arr outside function\n");
 
-   for (i = 0; i < number_readings; i++)
-   {
-      printf("i: %d, reading: %d, tempc: %f, tempf %f\n", i, temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
+   }
+   else{
+      printf("Invalid value in temp_sensor_readings, temp_c = %f and temp_f = %f for those values\n", TEMP_C_IF_INVALID, TEMP_F_IF_INVALID);
    }
 
+      for (i = 0; i < number_readings; i++)
+      {
+         printf("i: %d, reading: %d, tempc: %f, tempf %f\n", i, temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
+      }
    // for(i = 0; i < number_readings; i++){
    //    int temp_sensor_reading = temp_sensor_readings[i];
    //    temp_c = temp_sensor_converter(temp_sensor_reading, &success);
