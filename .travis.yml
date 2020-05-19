@@ -36,12 +36,13 @@ install:
   - echo  "Reached Install Section"
 
 script:  
-  - echo "Reached Script Section"
-  - gcc   	Vijay/vijay_practice.c hello_world.c -o output
+
+  - echo "Reached Script Section - Hello"
+  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c hello_world.c -o output
   - ./output
   - size output
-  
+
   - echo "Reached Script Section - CUnit"
-  - gcc   	Vijay/vijay_practice.c Vijay/Test_vijay_practice.c -o cunit_democode -lcunit
+  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c Elizabeth/elizabeth_test.c -o cunit_democode -lcunit
   - ./cunit_democode
   - size cunit_democode
