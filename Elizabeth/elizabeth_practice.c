@@ -77,7 +77,7 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
 
       printf("Processing temp sensor reading: %d . . .\n", temp_sensor_reading);
 
-      temp_c = temp_sensor_converter(temp_sensor_reading, temp_success);
+      temp_c = temp_sensor_converter(temp_sensor_reading, &temp_success);
 
       if (temp_success)
       {
