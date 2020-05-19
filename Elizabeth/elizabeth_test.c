@@ -158,8 +158,8 @@ int main() {
     CU_pSuite suite2 = CU_add_suite("test_temp_c_to_f", 0, 0);
     CU_pSuite suite3 = CU_add_suite("test_temp_sensor_to_c_valid", 0, 0);
     CU_pSuite suite4 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
-    CU_pSuite suite5 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
-    CU_pSuite suite6 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
+    CU_pSuite suite5 = CU_add_suite("test_sensor_readings_to_temp_c_and_temp_f_arrs_valid", 0, 0);
+    CU_pSuite suite6 = CU_add_suite("test_sensor_readings_to_temp_c_and_temp_f_arrs_invalid", 0, 0);
 
 
 
@@ -167,6 +167,8 @@ int main() {
     CU_add_test(suite2, "test_temp_c_to_f", test_temp_c_to_f);
     CU_add_test(suite3, "test_temp_sensor_to_c_valid", test_temp_sensor_to_c_valid);
     CU_add_test(suite4, "test_temp_sensor_to_c_invalid", test_temp_sensor_to_c_invalid);
+    CU_add_test(suite5, "test_sensor_readings_to_temp_c_and_temp_f_arrs_valid", test_sensor_readings_to_temp_c_and_temp_f_arrs_valid);
+    CU_add_test(suite6, "test_sensor_readings_to_temp_c_and_temp_f_arrs_invalid", test_sensor_readings_to_temp_c_and_temp_f_arrs_invalid);
     
 
 
