@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int list[10] = {2,3,4,5,6,1,19,25,4,15};
+int list[10] = {2,3,4,5,6,1,19,25,4,15};/* list to find max value*/
 int max_value();
 int sum(int, int);
 
