@@ -85,6 +85,71 @@ void test_temp_sensor_to_c_invalid(void){
     
 }
 
+void test_sensor_readings_to_temp_c_and_temp_f_arrs_valid(void){
+    int temp_sensor_readings = {0, 511, 1023};
+    float expected_temp_c = {-55.0, 34.9, 125.0};
+    float expected_temp_f = {-67.0, 94.8, 257.0};
+
+    float tolerance = 0.1;
+
+    int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
+
+    int i = 0;
+
+    bool success = false;
+
+    float temp_c;
+    float temp_f;
+
+    float temp_c_arr[number_readings];
+    float temp_f_arr[number_readings];
+
+    success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
+
+    CU_ASSERT(success == true);
+
+    for(i = 0; i < number_readings; i++){
+        CU_ASSERT(temp_c_arr[i] >= expected_temp_c[i] - tolerance);
+        CU_ASSERT(temp_c_arr[i] <= expected_temp_c[i] + tolerance);
+
+        CU_ASSERT(temp_f_arr[i] >= expected_temp_f[i] - tolerance);
+        CU_ASSERT(temp_f_arr[i] <= expected_temp_f[i] + tolerance);
+    }
+}
+
+void test_sensor_readings_to_temp_c_and_temp_f_arrs_invalid(void){
+    int temp_sensor_readings = {-2000, -1, 1024, 2000};
+
+    float TEMP_C_IF_INVALID = -100.0;
+    float TEMP_F_IF_INVALID = -200.0;  
+
+    float tolerance = 0.1;
+
+    int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
+
+    int i = 0;
+
+    bool success = false;
+
+    float temp_c;
+    float temp_f;
+
+    float temp_c_arr[number_readings];
+    float temp_f_arr[number_readings];
+
+    success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
+
+    CU_ASSERT(success == false);
+
+    for(i = 0; i < number_readings; i++){
+        CU_ASSERT(temp_c_arr[i] >= TEMP_C_IF_INVALID - tolerance);
+        CU_ASSERT(temp_c_arr[i] <= TEMP_C_IF_INVALID + tolerance);
+
+        CU_ASSERT(temp_f_arr[i] >= TEMP_F_IF_INVALID - tolerance);
+        CU_ASSERT(temp_f_arr[i] <= TEMP_F_IF_INVALID + tolerance);
+    }
+}
+
 int main() {
 
     CU_initialize_registry();
@@ -93,6 +158,8 @@ int main() {
     CU_pSuite suite2 = CU_add_suite("test_temp_c_to_f", 0, 0);
     CU_pSuite suite3 = CU_add_suite("test_temp_sensor_to_c_valid", 0, 0);
     CU_pSuite suite4 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
+    CU_pSuite suite5 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
+    CU_pSuite suite6 = CU_add_suite("test_temp_sensor_to_c_invalid", 0, 0);
 
 
 
