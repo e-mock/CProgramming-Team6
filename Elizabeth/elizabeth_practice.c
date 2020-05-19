@@ -16,26 +16,26 @@ int add(int a, int b)
 }
 
 // Takes temp_sensor_value that is an int between 0 and 1023 and converts it to a float temp_celsius between -55 and 125
-float temp_sensor_converter(int *temp_sensor_value, bool *success)
+float temp_sensor_converter(int temp_sensor_value, bool *success)
 {
    float temp_celsius = 0;
    // 0 reading = -55 C temp, 1023 reading = 125 C temp, assuming linear relationship
 
-   if (*temp_sensor_value < TEMP_SENSE_MIN || *temp_sensor_value > TEMP_SENSE_MAX)
+   if (temp_sensor_value < TEMP_SENSE_MIN || temp_sensor_value > TEMP_SENSE_MAX)
    {
       //change success to false
-      printf("Temperature sensor value (%d) is not in the range of %d to %d, changing success to false.\n", *temp_sensor_value, TEMP_SENSE_MIN, TEMP_SENSE_MAX);
+      printf("Temperature sensor value (%d) is not in the range of %d to %d, changing success to false.\n", temp_sensor_value, TEMP_SENSE_MIN, TEMP_SENSE_MAX);
       *success = false;
       return -100;
    }
 
-   printf("Temperature sensor value (%d) is in the range of %d to %d\n Attempting conversion now ...\n", *temp_sensor_value, TEMP_SENSE_MIN, TEMP_SENSE_MAX);
+   printf("Temperature sensor value (%d) is in the range of %d to %d\n Attempting conversion now ...\n", temp_sensor_value, TEMP_SENSE_MIN, TEMP_SENSE_MAX);
 
    //slope of a line with endpoints (TEMP_SENSE_MIN, TEMP_C_MIN) and (TEMP_SENSE_MAX, TEMP_C_MAX) where temp_sense is on the x axis and temp_c is on the y axis
    float TEMP_SLOPE = (TEMP_C_MAX - TEMP_C_MIN) / (1.0 * (TEMP_SENSE_MAX - TEMP_SENSE_MIN));
 
    //y = mx+b, y is the temp_c, m is TEMP_SLOPE, x is the temp_sense, and b is TEMP_C_Min
-   temp_celsius = TEMP_SLOPE * *temp_sensor_value + TEMP_C_MIN;
+   temp_celsius = TEMP_SLOPE * temp_sensor_value + TEMP_C_MIN;
 
    if (temp_celsius < TEMP_C_MIN || temp_celsius > TEMP_C_MAX)
    {
@@ -45,17 +45,17 @@ float temp_sensor_converter(int *temp_sensor_value, bool *success)
       return -200;
    }
 
-   printf("Temperature sensor value (%d) was converted successfully to temperature %f C in the range of %f C to %f C.\n", *temp_sensor_value, temp_celsius, TEMP_C_MIN, TEMP_C_MAX);
+   printf("Temperature sensor value (%d) was converted successfully to temperature %f C in the range of %f C to %f C.\n", temp_sensor_value, temp_celsius, TEMP_C_MIN, TEMP_C_MAX);
 
    *success = true;
    return temp_celsius;
 }
 
 // Converts temperature from Celsius to Fahrenheit
-float temp_c_to_f(float *temp_c)
+float temp_c_to_f(float temp_c)
 {
-   float temp_f = (9.0 / 5.0) * *temp_c + 32.0;
-   printf("Temperature %f C = %f F\n", *temp_c, temp_f);
+   float temp_f = (9.0 / 5.0) * temp_c + 32.0;
+   printf("Temperature %f C = %f F\n", temp_c, temp_f);
    return temp_f;
 }
 
@@ -77,11 +77,11 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
 
       printf("Processing temp sensor reading: %d . . .\n", temp_sensor_reading);
 
-      temp_c = temp_sensor_converter(&temp_sensor_reading, &temp_success);
+      temp_c = temp_sensor_converter(temp_sensor_reading, temp_success);
 
       if (temp_success)
       {
-         temp_f = temp_c_to_f(&temp_c);
+         temp_f = temp_c_to_f(temp_c);
          printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
 
          *(temp_c_arr_ptr + i) = temp_c;
