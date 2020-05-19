@@ -57,7 +57,7 @@ float temp_c_to_f(float temp_c)
    return temp_f;
 }
 
-//
+// Need to declare and initialize an array with temp sensor readings and declare 2 float arrays of the same size and pass them to this function to convert the reading to temp C and temp F and populate the arrays
 // pointer to array idea from https://www.tutorialspoint.com/cprogramming/c_pointer_to_an_array.htm after trying a lot of other ways
 bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_c_arr_ptr, float *temp_f__arr_ptr, int number_readings)
 {
