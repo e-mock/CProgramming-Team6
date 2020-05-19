@@ -42,6 +42,6 @@ script:
   - size output
   
   - echo "Reached Script Section - CUnit"
-  - gcc   	Vijay/vijay_practice.c -o cunit_democode -lcunit
+  - gcc   	Vijay/vijay_practice.c Vijay/Test_vijay_practice.c -o cunit_democode -lcunit
   - ./cunit_democode
   - size cunit_democode
