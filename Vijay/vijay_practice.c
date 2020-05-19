@@ -1,10 +1,21 @@
 #include <stdio.h>
 
+int list[10] = {2,3,4,5,6,1,19,25,4,15};/* list to find max value*/
 int max_value();
+int sum(int, int);
+
+int a,b;
 
 int hello_v() {
+
+	int result,result1;
+
    printf("Welcome Team6.!");
-   max_value();
+
+   result = max_value();
+   result1 = sum(a,b);
+
+   printf("The results are %d,%d",result,result1);
 
    return 0;
 }
@@ -13,7 +24,6 @@ int hello_v() {
 int max_value()
 {
 
-int list[10] = {2,3,4,5,6,1,19,25,4,15};
 int max_value = 0;
 
 for(int j=0;j<10;j++)
@@ -29,3 +39,9 @@ printf("The Maximum value in the list is %d",max_value);
 return max_value;
 
 }
+
+int sum(a,b)
+{
+	return a+b;
+}
+

@@ -18,7 +18,8 @@
 // }
 
 int main() {
-   printf("Hello World!\n");
+
+   printf("Hello World!");
    hello_c();
    hello_d();
    hello_e();
