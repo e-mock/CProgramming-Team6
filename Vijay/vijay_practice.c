@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int list[10] = {2,3,4,5,6,1,19,25,4,15};
-int max_value(int);
+int max_value();
 int sum(int, int);
 
 int a,b;
@@ -12,7 +12,7 @@ int hello_v() {
 
    printf("Welcome Team6.!");
 
-   result = max_value(list[10]);
+   result = max_value();
    result1 = sum(a,b);
 
    printf("The results are %d,%d",result,result1);
@@ -21,7 +21,7 @@ int hello_v() {
 }
 
 /* function to find the maximum value from a list of number*/
-int max_value(list[10])
+int max_value()
 {
 
 int max_value = 0;
