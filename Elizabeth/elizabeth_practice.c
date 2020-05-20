@@ -127,18 +127,19 @@ int hello_e()
 
    success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
 
-   if(success){
+   if (success)
+   {
       printf("Done creating arrays, testing printing arr outside function\n");
-
    }
-   else{
+   else
+   {
       printf("Invalid value in temp_sensor_readings, temp_c = %f and temp_f = %f for those values\n", TEMP_C_IF_INVALID, TEMP_F_IF_INVALID);
    }
 
-      for (i = 0; i < number_readings; i++)
-      {
-         printf("i: %d, reading: %d, tempc: %f, tempf %f\n", i, temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
-      }
+   for (i = 0; i < number_readings; i++)
+   {
+      printf("i: %d, reading: %d, tempc: %f, tempf %f\n", i, temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
+   }
    // for(i = 0; i < number_readings; i++){
    //    int temp_sensor_reading = temp_sensor_readings[i];
    //    temp_c = temp_sensor_converter(temp_sensor_reading, &success);
