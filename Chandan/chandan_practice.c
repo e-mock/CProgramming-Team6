@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-int main()
+int hello_c()
 {
    float a = 14.5;
    float b = 16;
