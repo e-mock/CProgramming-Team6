@@ -32,6 +32,7 @@ void test_temp_c_to_f(void){
     float expected_outputs[] = {-40.0, 32.0, 77.0, 212.0};
 
     float tolerance = 0.1;
+    float temp_c;
 
     //num_tests has number of elements in inputs array
     int num_tests = sizeof(inputs)/sizeof(inputs[0]); 
@@ -39,9 +40,10 @@ void test_temp_c_to_f(void){
     int i = 0;
 
     for(i = 0; i < num_tests; i++){
-        CU_ASSERT(temp_c_to_f(&(inputs[i])) >= expected_outputs[i] - tolerance);
+        temp_c = inputs[i];
+        CU_ASSERT(temp_c_to_f(&temp_c) >= expected_outputs[i] - tolerance);
        
-        CU_ASSERT(temp_c_to_f(&(inputs[i])) <= expected_outputs[i] + tolerance);
+        CU_ASSERT(temp_c_to_f(&temp_c) <= expected_outputs[i] + tolerance);
         
     }
 }
