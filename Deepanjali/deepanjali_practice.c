@@ -2,6 +2,7 @@
 
 int hello_d() {
    printf("Hello Deepa.!");
+   printf("Test");
    
    return 0;
 }
