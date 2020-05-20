@@ -82,10 +82,10 @@ void test_temp_sensor_to_c_invalid(void){
 
     for(i = 0; i < num_tests; i++){
         CU_ASSERT(temp_sensor_converter(inputs[i], &success) >= expected_outputs[i] - tolerance);
-        CU_ASSERT(success == true); 
+        CU_ASSERT(success == false); 
 
         CU_ASSERT(temp_sensor_converter(inputs[i], &success) <= expected_outputs[i] + tolerance);
-        CU_ASSERT(success == true); 
+        CU_ASSERT(success == false); 
     } 
     
 }
