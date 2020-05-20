@@ -39,9 +39,9 @@ void test_temp_c_to_f(void){
     int i = 0;
 
     for(i = 0; i < num_tests; i++){
-        CU_ASSERT(temp_c_to_f(inputs[i]) >= expected_outputs[i] - tolerance);
+        CU_ASSERT(temp_c_to_f(&(inputs[i])) >= expected_outputs[i] - tolerance);
        
-        CU_ASSERT(temp_c_to_f(inputs[i]) <= expected_outputs[i] + tolerance);
+        CU_ASSERT(temp_c_to_f(&(inputs[i])) <= expected_outputs[i] + tolerance);
         
     }
 }
@@ -114,11 +114,11 @@ void test_sensor_readings_to_temp_c_and_temp_f_arrs_valid(void){
     CU_ASSERT(success == true);
 
     for(i = 0; i < number_readings; i++){
-        CU_ASSERT(&(temp_c_arr[i]) >= expected_temp_c[i] - tolerance);
-        CU_ASSERT(&(temp_c_arr[i]) <= expected_temp_c[i] + tolerance);
+        CU_ASSERT(temp_c_arr[i] >= expected_temp_c[i] - tolerance);
+        CU_ASSERT(temp_c_arr[i] <= expected_temp_c[i] + tolerance);
 
-        CU_ASSERT(&(temp_f_arr[i])>= expected_temp_f[i] - tolerance);
-        CU_ASSERT(&(temp_f_arr[i]) <= expected_temp_f[i] + tolerance);
+        CU_ASSERT(temp_f_arr[i] >= expected_temp_f[i] - tolerance);
+        CU_ASSERT(temp_f_arr[i] <= expected_temp_f[i] + tolerance);
     }
 }
 
