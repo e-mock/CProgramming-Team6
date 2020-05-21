@@ -147,6 +147,27 @@ int hello_e()
       printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
    }
 
+   printf("reallocating readings to be longer");
+
+   temp_sensor_readings = (int*)realloc(temp_sensor_readings, 2*number_readings);
+   number_readings *=2;
+
+   printf("There are %d spots for sensor readings.", number_readings);
+   
+   for(i = 0; i < number_readings; i++){
+      printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
+   }
+
+   printf("setting values\n");
+   for(i = 0; i < number_readings; i++){
+      temp_sensor_readings[i] = 170*i;
+   }
+
+   printf("Done setting values\n");
+   for(i = 0; i < number_readings; i++){
+      printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
+   }
+
 
 
    bool success = false;
