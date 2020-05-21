@@ -41,9 +41,9 @@ void test_temp_c_to_f(void){
 
     for(i = 0; i < num_tests; i++){
         temp_c = inputs[i];
-        CU_ASSERT(temp_c_to_f(temp_c) >= expected_outputs[i] - tolerance);
+        CU_ASSERT(temp_c_to_f(&temp_c) >= expected_outputs[i] - tolerance);
        
-        CU_ASSERT(temp_c_to_f(temp_c) <= expected_outputs[i] + tolerance);
+        CU_ASSERT(temp_c_to_f(&temp_c) <= expected_outputs[i] + tolerance);
         
     }
 }
