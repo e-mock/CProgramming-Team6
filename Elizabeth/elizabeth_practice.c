@@ -72,7 +72,7 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
    float temp_f;
 
    // pointer to temp_c_to_f that uses pointer
-   float (*fun_ptr)(*float) = &temp_c_to_f;
+   float (*fun_ptr)(*float) = temp_c_to_f;
 
    for (i = 0; i < number_readings; i++)
    {
