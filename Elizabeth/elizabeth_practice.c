@@ -71,6 +71,9 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
    float temp_c;
    float temp_f;
 
+   // pointer to temp_c_to_f that uses pointer
+   float (*fun_ptr)(*float) = &temp_c_to_f;
+
    for (i = 0; i < number_readings; i++)
    {
       int temp_sensor_reading = *(temp_sesnor_readings_ptr + i);
@@ -81,7 +84,8 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
 
       if (temp_success)
       {
-         temp_f = temp_c_to_f(&temp_c);
+         // temp_f = temp_c_to_f(&temp_c);
+         temp_f = (*fun_ptr)(&temp_c);
          printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
 
          *(temp_c_arr_ptr + i) = temp_c;
