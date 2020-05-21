@@ -15,7 +15,7 @@ int hello_d();
 
 int add(int a, int b);
 float temp_sensor_converter(int temp_sensor_value, bool *success);
-float temp_c_to_f(float *temp_c);
+float temp_c_to_f(float temp_c);
 bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_c_arr_ptr, float *temp_f__arr_ptr, int number_readings);
 
 #endif
