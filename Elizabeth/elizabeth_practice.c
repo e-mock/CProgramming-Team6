@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 const float TEMP_C_MIN = -55.0;
 const float TEMP_C_MAX = 125.0;
