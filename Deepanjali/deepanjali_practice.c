@@ -56,5 +56,5 @@ float func_div(p, q)
     /*float y;
     y = (p / q);
     return y;*/
-    return (p / q);
+    return (p / (1.0*q));
 }
