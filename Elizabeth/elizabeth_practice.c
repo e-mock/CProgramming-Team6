@@ -123,13 +123,13 @@ int hello_e()
    // int temp_sensor_readings[] = {0, 100, 1023};
    
    //pretend this was read by scanf
-   int desired_n = 3;
+   int number_readings = 3;
 
    int i = 0;
 
-   int* temp_sensor_readings = (int*)malloc(desired_n * sizeof(int));
+   int* temp_sensor_readings = (int*)calloc(number_readings * sizeof(int));
    
-   int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
+   // int number_readings = sizeof(temp_sensor_readings) / sizeof(int); //Can't use this to determine size of dynamically allocated array
 
    printf("There are %d spots for sensor readings.", number_readings);
    
