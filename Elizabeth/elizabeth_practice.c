@@ -131,7 +131,7 @@ int hello_e()
    
    int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
 
-   print("There are %d spots for sensor readings.", number_readings);
+   printf("There are %d spots for sensor readings.", number_readings);
    
    for(i = 0; i < number_readings; i++){
       printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
