@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int p,q;
 int hello_d() {
 
  /* Local variables to hold results*/
