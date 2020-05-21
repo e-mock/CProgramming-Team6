@@ -127,7 +127,7 @@ int hello_e()
 
    int i = 0;
 
-   int* temp_sensor_readings = (int*)calloc(number_readings * sizeof(int));
+   int* temp_sensor_readings = (int*)calloc(number_readings, sizeof(int));
    
    // int number_readings = sizeof(temp_sensor_readings) / sizeof(int); //Can't use this to determine size of dynamically allocated array
 
