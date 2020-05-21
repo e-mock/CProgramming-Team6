@@ -70,9 +70,12 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
 
    float temp_c;
    float temp_f;
-
+   //https://www.ibm.com/support/knowledgecenter/SSLTBW_2.4.0/com.ibm.zos.v2r4.cbclx01/cplr242.htm
+   //https://www.geeksforgeeks.org/function-pointer-in-c/
+   //https://cs.nyu.edu/courses/spring12/CSCI-GA.3033-014/Assignment1/function_pointers.html
    // pointer to temp_c_to_f that uses pointer
-   float (*fun_ptr)(*float) = temp_c_to_f;
+   float (*fun_ptr)(*float);
+   fun_ptr = temp_c_to_f;
 
    for (i = 0; i < number_readings; i++)
    {
