@@ -51,7 +51,9 @@ int func_multi(p, q)
 }
 
 /*Division function*/
-float func_div(p, q)
+void func_div(p, q)
 {
-    return(p / q);
+    float y;
+    y = (p / q);
+    return y;
 }
