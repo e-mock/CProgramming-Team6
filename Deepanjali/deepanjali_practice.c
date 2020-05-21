@@ -15,11 +15,11 @@ int hello_d() {
     tst_multi = func_multi(a, b);
     tst_div = func_div(a, b);
 
-    printf("Basic mathematics operation Results");
-    printf("Addition : %d", tst_add);
-    printf("Subtraction : %d", tst_sub);
-    printf("Multiplication : %d", tst_multi);
-    printf("Division : %f", tst_div);
+    printf("Basic mathematics operation Results\n");
+    printf("Addition : %d\n", tst_add);
+    printf("Subtraction : %d\n", tst_sub);
+    printf("Multiplication : %d\n", tst_multi);
+    printf("Division : %f\n", tst_div);
 
    return 0;
 }
