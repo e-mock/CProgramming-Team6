@@ -119,10 +119,34 @@ int hello_e()
    // Calls the functions in elizabeth_practice.c for seeing how they run in a limited way
    printf("Hello E.!\n");
 
-   int temp_sensor_readings[] = {0, 100, 1023};
-   int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
+   // int temp_sensor_readings[] = {0, 100, 1023};
+   
+   //pretend this was read by scanf
+   int desired_n = 3;
 
    int i = 0;
+
+   int* temp_sensor_readings = (int*)malloc(desired_n * sizeof(int));
+   
+   int number_readings = sizeof(temp_sensor_readings) / sizeof(int);
+
+   print("There are %d spots for sensor readings.", number_readings);
+   
+   for(i = 0; i < number_readings; i++){
+      printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
+   }
+
+   printf("setting values\n");
+   for(i = 0; i < number_readings; i++){
+      temp_sensor_readings[i] = 511*i;
+   }
+
+   printf("Done setting values\n");
+   for(i = 0; i < number_readings; i++){
+      printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
+   }
+
+
 
    bool success = false;
 
@@ -131,7 +155,7 @@ int hello_e()
 
    float temp_c_arr[number_readings];
    float temp_f_arr[number_readings];
-
+   
    success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
 
    if (success)
@@ -159,6 +183,8 @@ int hello_e()
    //       printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_reading);
    //    }
    // }
+
+   free(temp_sensor_readings);
 
    return 0;
 }
