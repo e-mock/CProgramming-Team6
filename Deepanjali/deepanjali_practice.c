@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int p,q;
+float p,q;
 int hello_d() {
 
  /* Local variables to hold results*/
@@ -56,5 +56,5 @@ float func_div(p, q)
     /*float y;
     y = (p / q);
     return y;*/
-    return (p / (1.0*q));
+    return (p / q);
 }
