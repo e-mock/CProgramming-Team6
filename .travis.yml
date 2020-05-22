@@ -43,6 +43,6 @@ script:
   - size output
 
   - echo "Reached Script Section - CUnit"
-  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c Elizabeth/elizabeth_test.c -o cunit_democode -lcunit -lm
+  - gcc   	Vijay/vijay_practice.c -o cunit_democode -lcunit
   - ./cunit_democode
   - size cunit_democode
