@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 float p,q;
+float a,b;
 int hello_d() {
 
  /* Local variables to hold results*/
@@ -8,7 +9,6 @@ int hello_d() {
     int tst_sub;
     int tst_multi;
     float tst_div;
-    int a = 10, b = 20;
 
     tst_add = func_add(a, b);
     tst_sub = func_sub(a, b);
