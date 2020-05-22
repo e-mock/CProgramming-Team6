@@ -73,7 +73,8 @@ int hello_c()
   
    printf("\n The area of triangle A, B and C");
    s= (sum)/ 2; 
-   area = sqrt(s * (s - a) * (s - b) * (s - c));
+   //area = sqrt(s * (s - a) * (s - b) * (s - c));
+   area=10.0;
    printf("\n The area = %f \n", area);
    
    printf("\n The area of circle C ");
