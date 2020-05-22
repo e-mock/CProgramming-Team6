@@ -42,7 +42,12 @@ script:
   - ./output
   - size output
 
-  - echo "Reached Script Section - CUnit"
+  - echo "Reached Script Section - Elizabeth CUnit"
   - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Deepanjali/Deepa_Cunit.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c Elizabeth/elizabeth_test.c -o cunit_democode -lcunit
   - ./cunit_democode
   - size cunit_democode
+  
+    - echo "Reached Script Section - Deepa CUnit"
+  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Deepanjali/Deepa_Cunit.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c Deepa/Deepa_Cunit.c -o cunit_democode_deepa -lcunit
+  - ./cunit_democode_deepa
+  - size cunit_democode_deepa
