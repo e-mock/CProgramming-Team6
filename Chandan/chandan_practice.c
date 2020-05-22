@@ -8,7 +8,7 @@ int hello_c()
    int x = 3;
    int y = 6;
    int z = 5;
-   int i, HCF, max, step, LCM;
+   int i, HCF, max, step, LCM;/*comment*/
    float sum, prod, divs, mod, modu, cira, cirb;
    float sub, diff, divi, s, area, cir, rec;
    printf("\n The values are A = %f, B = %f, C=%f \n", a,b,c );
