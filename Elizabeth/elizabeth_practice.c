@@ -53,7 +53,7 @@ float temp_sensor_converter(int temp_sensor_value, bool *success)
 }
 
 // Converts temperature from Celsius to Fahrenheit
-float temp_c_to_f(float* temp_c)
+float temp_c_to_f(float *temp_c)
 {
    float temp_f = (9.0 / 5.0) * *temp_c + 32.0;
    printf("Temperature %f C = %f F\n", *temp_c, temp_f);
@@ -75,7 +75,7 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
    //https://www.geeksforgeeks.org/function-pointer-in-c/
    //https://cs.nyu.edu/courses/spring12/CSCI-GA.3033-014/Assignment1/function_pointers.html
    // pointer to temp_c_to_f that uses pointer
-   float (*fun_ptr)(float*);
+   float (*fun_ptr)(float *);
    fun_ptr = temp_c_to_f;
 
    for (i = 0; i < number_readings; i++)
@@ -121,91 +121,105 @@ int hello_e()
    printf("Hello E.!\n");
 
    // int temp_sensor_readings[] = {0, 100, 1023};
-   
+
    //pretend this was read by scanf
    int number_readings = 3;
 
    int i = 0;
 
-   int* temp_sensor_readings = (int*)calloc(number_readings, sizeof(int));
-   
+   int *temp_sensor_readings = (int *)calloc(number_readings, sizeof(int));
+
    // int number_readings = sizeof(temp_sensor_readings) / sizeof(int); //Can't use this to determine size of dynamically allocated array
 
    printf("There are %d spots for sensor readings.", number_readings);
-   
-   for(i = 0; i < number_readings; i++){
+
+   for (i = 0; i < number_readings; i++)
+   {
       printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
    }
 
    printf("setting values\n");
-   for(i = 0; i < number_readings; i++){
-      temp_sensor_readings[i] = 511*i;
+   for (i = 0; i < number_readings; i++)
+   {
+      temp_sensor_readings[i] = 511 * i;
    }
 
    printf("Done setting values\n");
-   for(i = 0; i < number_readings; i++){
+   for (i = 0; i < number_readings; i++)
+   {
       printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
    }
 
    printf("reallocating readings to be longer");
 
-   temp_sensor_readings = (int*)realloc(temp_sensor_readings, 2*number_readings);
-   number_readings *=2;
+   int *temporary_readings = (int *)realloc(temp_sensor_readings, 2 * number_readings);
 
-   printf("There are %d spots for sensor readings.", number_readings);
-   
-   for(i = 0; i < number_readings; i++){
-      printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
-   }
-
-   printf("setting values\n");
-   for(i = 0; i < number_readings; i++){
-      temp_sensor_readings[i] = 170*i;
-   }
-
-   printf("Done setting values\n");
-   for(i = 0; i < number_readings; i++){
-      printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
-   }
-
-
-
-   bool success = false;
-
-   float temp_c;
-   float temp_f;
-
-   float temp_c_arr[number_readings];
-   float temp_f_arr[number_readings];
-   
-   success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
-
-   if (success)
+   if (temporary_readings == NULL)
    {
-      printf("Done creating arrays, testing printing arr outside function\n");
+      // error in realloc out of heap space
+      printf("Could not find reallocate space for readings\n");
+      // possibly return error value here
    }
    else
    {
-      printf("Invalid value in temp_sensor_readings, temp_c = %f and temp_f = %f for those values\n", TEMP_C_IF_INVALID, TEMP_F_IF_INVALID);
+      temp_sensor_readings = temporary_readings;
+      number_readings *= 2;
+
+      printf("There are %d spots for sensor readings.", number_readings);
+
+      for (i = 0; i < number_readings; i++)
+      {
+         printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
+      }
+
+      printf("setting values\n");
+      for (i = 0; i < number_readings; i++)
+      {
+         temp_sensor_readings[i] = 170 * i;
+      }
+
+      printf("Done setting values\n");
+      for (i = 0; i < number_readings; i++)
+      {
+         printf("Index %d has value %d\n", i, temp_sensor_readings[i]);
+      }
+
+      bool success = false;
+
+      float temp_c;
+      float temp_f;
+
+      float temp_c_arr[number_readings];
+      float temp_f_arr[number_readings];
+
+      success = readings_to_temp_c_and_f_arrays(temp_sensor_readings, temp_c_arr, temp_f_arr, number_readings);
+
+      if (success)
+      {
+         printf("Done creating arrays, testing printing arr outside function\n");
+      }
+      else
+      {
+         printf("Invalid value in temp_sensor_readings, temp_c = %f and temp_f = %f for those values\n", TEMP_C_IF_INVALID, TEMP_F_IF_INVALID);
+      }
+
+      for (i = 0; i < number_readings; i++)
+      {
+         printf("i: %d, reading: %d, tempc: %f, tempf %f\n", i, temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
+      }
+      // for(i = 0; i < number_readings; i++){
+      //    int temp_sensor_reading = temp_sensor_readings[i];
+      //    temp_c = temp_sensor_converter(temp_sensor_reading, &success);
+
+      //    if(success) {
+      //    temp_f = temp_c_to_f(temp_c);
+      //    printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
+      //    }
+      //    else {
+      //       printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_reading);
+      //    }
+      // }
    }
-
-   for (i = 0; i < number_readings; i++)
-   {
-      printf("i: %d, reading: %d, tempc: %f, tempf %f\n", i, temp_sensor_readings[i], temp_c_arr[i], temp_f_arr[i]);
-   }
-   // for(i = 0; i < number_readings; i++){
-   //    int temp_sensor_reading = temp_sensor_readings[i];
-   //    temp_c = temp_sensor_converter(temp_sensor_reading, &success);
-
-   //    if(success) {
-   //    temp_f = temp_c_to_f(temp_c);
-   //    printf("Temp Sensor reading: %d, temperature(C): %f, temperature(F): %f \n", temp_sensor_reading, temp_c, temp_f);
-   //    }
-   //    else {
-   //       printf("Error converting temperature sensor reading (%d) to degrees Celsius, skipped converting to degrees Fahrenheit\n", temp_sensor_reading);
-   //    }
-   // }
-
    free(temp_sensor_readings);
 
    return 0;
