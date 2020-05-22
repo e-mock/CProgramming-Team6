@@ -2,7 +2,7 @@
 
 float p,q;
 float a,b;
-int hello_d() {
+void test_func(a,b) {
 
  /* Local variables to hold results*/
     int tst_add;
