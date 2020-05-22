@@ -9,7 +9,7 @@ void basic_math(void)
     CU_ASSERT(func_multi(54, 30) == 1620);
 }
 
-int main() {
+int Cunit_main() {
 
     CU_initialize_registry();
 
