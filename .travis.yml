@@ -38,9 +38,9 @@ install:
 script:  
 
   - echo "Reached Script Section - Hello"
-  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c hello_world.c -o output
-  - ./output
-  - size output
+  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c hello_world.c -o outputc
+  - ./outputc
+  - size outputc
 
   - echo "Reached Script Section - CUnit"
   - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/vijay_practice.c Elizabeth/elizabeth_test.c -o cunit_democode -lcunit
