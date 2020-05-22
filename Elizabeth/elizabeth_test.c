@@ -1,6 +1,6 @@
-#include <CUnit/CUnit.h>
+/*#include <CUnit/CUnit.h>
 #include <CUnit/Basic.h>
-#include "hello.h"
+#include "hello.h"*/
 
 // int maxi(int i1, int i2)
 
@@ -20,7 +20,7 @@
 
 // }
 
-void test_add(void)
+/*void test_add(void)
 {
     CU_ASSERT(add(2,2) == 4);
     CU_ASSERT(add(0, 0) == 0);
@@ -116,4 +116,4 @@ int main() {
 
     return 0;
 
-}
+}*/

@@ -26,7 +26,8 @@ int max_value()
 
 int max_value = 0;
 
-for(int j=0;j<10;j++)
+int j;
+for(j=0;j<10;j++)
 {
 	if(max_value < list[j])
 	{
