@@ -9,6 +9,191 @@ const int TEMP_SENSE_MAX = 1023;
 const float TEMP_C_IF_INVALID = -100.0;
 const float TEMP_F_IF_INVALID = -200.0;
 
+const int MAX_LINKED_LIST_LENGTH = 10;
+
+typedef struct Node
+{
+   int value;
+   struct Node *this_node_addr;
+   struct Node *next_node_addr;
+} Node;
+
+void add_ll_element(int value, Node *linked_list, int *filled_size);
+void print_ll(Node linked_list[], int *filled_size);
+void remove_all_nodes_with_value(int value_to_remove, Node linked_list[], int *filled_size);
+
+void add_ll_element(int value, Node *linked_list, int *filled_size)
+{
+   if (*filled_size == 0)
+   {
+      Node node_to_add;
+      node_to_add.value = value;
+      node_to_add.this_node_addr = linked_list + *filled_size;
+      node_to_add.next_node_addr = NULL;
+      node_to_add.next_node_addr = NULL;
+
+      *(linked_list) = node_to_add;
+
+      *filled_size = *filled_size + 1;
+   }
+   else if (*filled_size < MAX_LINKED_LIST_LENGTH)
+   {
+      Node node_to_add;
+      Node node_to_update = *(linked_list + *filled_size - 1);
+
+      Node *next_addr_before = node_to_update.next_node_addr;
+
+      Node *next_addr_after = linked_list + *filled_size;
+
+      printf("last node next addr before: %d, changed to %d \n",
+             next_addr_before, next_addr_after);
+
+      node_to_add.value = value;
+      node_to_add.this_node_addr = next_addr_after;
+      node_to_add.next_node_addr = NULL;
+      node_to_add.next_node_addr = NULL;
+
+      *(linked_list + *filled_size) = node_to_add;
+
+      node_to_update.next_node_addr = next_addr_after;
+      node_to_update.next_node_addr = next_addr_after;
+      *(linked_list + *filled_size - 1) = node_to_update;
+
+      *filled_size = *filled_size + 1;
+   }
+   else
+   {
+      printf("Linked List is full, not adding element\n");
+   }
+}
+
+void remove_all_nodes_with_value(int value_to_remove, Node linked_list[],
+                                 int *filled_size)
+{
+   if (filled_size > 0)
+   {
+      Node first_node = *(linked_list);
+      Node *current_node_addr;
+      Node *next_node_addr = &first_node; //purposely setting this way to print first element in while loop
+
+      while (next_node_addr != NULL)
+      {
+         current_node_addr = next_node_addr;
+         Node current_node = *(current_node_addr);
+         next_node_addr = current_node.next_node_addr;
+
+         Node next_node = *next_node_addr;
+
+         // printf("next node: value: %d, addr: %d, next_addr: %d, next node: %d \n", next_node.value, next_node.addr, next_node.next_addr, next_node.next_node);
+
+         // printf("current: value: %d, addr: %d, next_addr: %d, next node: %d \n", current_node.value, current_node.addr, current_node.next_addr, current_node.next_node);
+
+         if (next_node.value == value_to_remove)
+         {
+
+            printf("found node to remove\n");
+
+            printf("next node: value: %d, addr: %d, next_addr: %d, next node: %d \n",
+                   next_node.value, next_node.this_node_addr, next_node.next_node_addr,
+                   next_node.next_node_addr);
+
+            printf("current: value: %d, addr: %d, next_addr: %d, next node: %d \n",
+                   current_node.value, current_node.this_node_addr,
+                   current_node.next_node_addr, current_node.next_node_addr);
+
+            current_node.next_node_addr = next_node.next_node_addr;
+            next_node.next_node_addr = NULL;
+
+            *(current_node_addr) = current_node;
+            *(next_node_addr) = next_node;
+            //   next_node.addr = NULL;
+
+            // next_node
+
+            printf("next node: value: %d, addr: %d, next_addr: %d\n",
+                   next_node.value, next_node.this_node_addr, next_node.next_node_addr);
+
+            printf("current: value: %d, addr: %d, next_addr: %d, next node: %d \n",
+                   current_node.value, current_node.this_node_addr,
+                   current_node.next_node_addr, current_node.next_node_addr);
+
+            *(current_node.this_node_addr) = current_node;
+            *(next_node.this_node_addr) = next_node;
+
+            next_node_addr = next_node.next_node_addr;
+            *filled_size--;
+         }
+      }
+   }
+   else
+   {
+      printf("linked list is empty, nothing to remove\n");
+   }
+}
+
+void print_ll(Node linked_list[], int *filled_size)
+{
+   int i = 0;
+   Node temp_node;
+   printf("Printing linked list with %d elements\n", *filled_size);
+
+   //naive solution assuming elements in order
+   for (i = 0; i < *filled_size; i++)
+   {
+      temp_node = linked_list[i];
+      printf("i: %d, value: %d, addr: %d, next_addr: %d, next_node: %d\n", i,
+             temp_node.value, temp_node.this_node_addr, temp_node.next_node_addr,
+             temp_node.next_node_addr);
+   }
+
+   if (filled_size > 0)
+   {
+      Node first_node = *(linked_list);
+      Node *next_node = &first_node; //purposely setting this way to print first element in while loop
+
+      while (next_node != NULL)
+      {
+         Node current_node = *(next_node);
+         next_node = current_node.next_node_addr;
+         printf("value: %d, addr: %d, next_addr: %d, next node: %d \n",
+                current_node.value, current_node.this_node_addr,
+                current_node.next_node_addr, current_node.next_node_addr);
+      }
+   }
+   else
+   {
+      printf("linked list is empty\n");
+   }
+}
+
+int ll_practice()
+{
+   Node linked_list[MAX_LINKED_LIST_LENGTH];
+   int filled_size = 0;
+
+   add_ll_element(1, linked_list, &filled_size);
+   add_ll_element(2, linked_list, &filled_size);
+   add_ll_element(3, linked_list, &filled_size);
+   add_ll_element(4, linked_list, &filled_size);
+   add_ll_element(5, linked_list, &filled_size);
+
+   print_ll(linked_list, &filled_size);
+
+   remove_all_nodes_with_value(2, linked_list, &filled_size);
+
+   print_ll(linked_list, &filled_size);
+
+   remove_all_nodes_with_value(5, linked_list, &filled_size);
+
+   print_ll(linked_list, &filled_size);
+
+   remove_all_nodes_with_value(4, linked_list, &filled_size);
+//   remove_all_nodes_with_value(1, linked_list, &filled_size);
+   remove_all_nodes_with_value(3, linked_list, &filled_size);
+
+   return 0;
+}
+
 // adds 2 ints, stub for testing
 int add(int a, int b)
 {
