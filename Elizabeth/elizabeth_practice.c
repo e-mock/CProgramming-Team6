@@ -29,8 +29,7 @@ void add_ll_element(int value, Node *linked_list, int *filled_size)
       Node node_to_add;
       node_to_add.value = value;
       node_to_add.this_node_addr = linked_list + *filled_size;
-      node_to_add.next_node_addr = NULL;
-      node_to_add.next_node_addr = NULL;
+      node_to_add.next_node_addr = NULL;\
 
       *(linked_list) = node_to_add;
 
@@ -45,17 +44,15 @@ void add_ll_element(int value, Node *linked_list, int *filled_size)
 
       Node *next_addr_after = linked_list + *filled_size;
 
-      printf("last node next addr before: %d, changed to %d \n",
+      printf("last node next addr before: %p, changed to %p \n",
              next_addr_before, next_addr_after);
 
       node_to_add.value = value;
       node_to_add.this_node_addr = next_addr_after;
       node_to_add.next_node_addr = NULL;
-      node_to_add.next_node_addr = NULL;
 
       *(linked_list + *filled_size) = node_to_add;
 
-      node_to_update.next_node_addr = next_addr_after;
       node_to_update.next_node_addr = next_addr_after;
       *(linked_list + *filled_size - 1) = node_to_update;
 
@@ -91,37 +88,33 @@ void remove_all_nodes_with_value(int value_to_remove, Node linked_list[],
          if (next_node.value == value_to_remove)
          {
 
-            printf("found node to remove\n");
+            printf("Found node to remove\n");
 
-            printf("next node: value: %d, addr: %d, next_addr: %d, next node: %d \n",
-                   next_node.value, next_node.this_node_addr, next_node.next_node_addr,
-                   next_node.next_node_addr);
-
-            printf("current: value: %d, addr: %d, next_addr: %d, next node: %d \n",
+            printf("Current and next nodes before updates:\n");
+            printf("current: value: %d, addr: %p, next_addr: %p\n",
                    current_node.value, current_node.this_node_addr,
-                   current_node.next_node_addr, current_node.next_node_addr);
+                   current_node.next_node_addr);
+            printf("next node: value: %d, addr: %p, next_addr: %p\n",
+                   next_node.value, next_node.this_node_addr, next_node.next_node_addr);
 
             current_node.next_node_addr = next_node.next_node_addr;
             next_node.next_node_addr = NULL;
 
             *(current_node_addr) = current_node;
             *(next_node_addr) = next_node;
-            //   next_node.addr = NULL;
 
-            // next_node
-
-            printf("next node: value: %d, addr: %d, next_addr: %d\n",
-                   next_node.value, next_node.this_node_addr, next_node.next_node_addr);
-
-            printf("current: value: %d, addr: %d, next_addr: %d, next node: %d \n",
+            printf("Current and next nodes after updates:\n");
+            printf("current: value: %d, addr: %p, next_addr: %p\n",
                    current_node.value, current_node.this_node_addr,
-                   current_node.next_node_addr, current_node.next_node_addr);
+                   current_node.next_node_addr);
+            printf("next node: value: %d, addr: %p, next_addr: %p\n",
+                   next_node.value, next_node.this_node_addr, next_node.next_node_addr);
 
             *(current_node.this_node_addr) = current_node;
             *(next_node.this_node_addr) = next_node;
 
             next_node_addr = next_node.next_node_addr;
-            *filled_size--;
+            *filled_size = *filled_size - 1;
          }
       }
    }
@@ -141,9 +134,8 @@ void print_ll(Node linked_list[], int *filled_size)
    for (i = 0; i < *filled_size; i++)
    {
       temp_node = linked_list[i];
-      printf("i: %d, value: %d, addr: %d, next_addr: %d, next_node: %d\n", i,
-             temp_node.value, temp_node.this_node_addr, temp_node.next_node_addr,
-             temp_node.next_node_addr);
+      printf("i: %d, value: %d, addr: %p, next_addr: %p\n", i,
+             temp_node.value, temp_node.this_node_addr, temp_node.next_node_addr);
    }
 
    if (filled_size > 0)
@@ -155,9 +147,9 @@ void print_ll(Node linked_list[], int *filled_size)
       {
          Node current_node = *(next_node);
          next_node = current_node.next_node_addr;
-         printf("value: %d, addr: %d, next_addr: %d, next node: %d \n",
+         printf("value: %d, addr: %p, next_addr: %p \n",
                 current_node.value, current_node.this_node_addr,
-                current_node.next_node_addr, current_node.next_node_addr);
+                current_node.next_node_addr);
       }
    }
    else
@@ -188,7 +180,7 @@ int ll_practice()
    print_ll(linked_list, &filled_size);
 
    remove_all_nodes_with_value(4, linked_list, &filled_size);
-//   remove_all_nodes_with_value(1, linked_list, &filled_size);
+   //   remove_all_nodes_with_value(1, linked_list, &filled_size);
    remove_all_nodes_with_value(3, linked_list, &filled_size);
 
    return 0;
