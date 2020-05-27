@@ -7,7 +7,6 @@ void basic_math(void)
     CU_ASSERT(func_add(2,2) == 4);
     CU_ASSERT(func_sub(10, 20) == 10);
     CU_ASSERT(func_multi(54, 30) == 1620);
-    CU_ASSERT(func_div(4, 2) == 2);
 }
 
 int main() {
