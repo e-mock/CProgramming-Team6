@@ -69,15 +69,7 @@ void func_div(p, q)
 
 }
 
-/*Function Pointer*/
-int add_array(int* a, int num_elements);
-
-int array_addition() {
-    int Tab[5] = { 100, 220, 37, 16, 98 };
-    printf("Total summation is %d\n", add_array(Tab, 5));
-    return 0;
-}
-
+/*Addition of array members*/
 int add_array(int* p, int size) {
     int total = 0;
     int k;
