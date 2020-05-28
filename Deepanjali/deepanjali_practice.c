@@ -93,7 +93,7 @@ int func_malloc()
         sum += *(ptr + i);
     }
     
-    printf("Sum = %d", sum);
+    printf("\nSum = %d\n", sum);
   
     // deallocating the memory
     free(ptr);
