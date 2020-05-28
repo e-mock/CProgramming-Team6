@@ -85,8 +85,8 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-        arr[i] = i+10;
-        printf("Array Values : %d\n", arr[i]);
+        p+i = i+10;
+        printf("Array Values : %d\n", p+i);
     }
     
     // if memory cannot be allocated
@@ -98,10 +98,10 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-        sum = (arr[i]) + sum;
+         sum += *(p+i);
     }
     
-    printf("\nSum = %d\n", ptr[i]);
+    printf("\nSum = %d\n", sum);
   
     // deallocating the memory
     free(ptr);
