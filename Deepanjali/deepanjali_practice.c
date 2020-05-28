@@ -113,7 +113,7 @@ int seq_sum() {
      printf("Error! memory not allocated.");
      exit(0);
   }
-  printf("Building and calculating the sequence sum of the first 10 terms \ n ");
+  printf("Building and calculating the sequence sum of the first 10 terms \n ");
   
   for (i = 0; i < 10; ++i) 
   { 
