@@ -20,8 +20,10 @@ int main() {
     CU_initialize_registry();
 
     CU_pSuite suite1 = CU_add_suite("basic_math", 0, 0);
+    CU_pSuite suite2 = CU_add_suite("array_addition", 0, 0);
 
     CU_add_test(suite1, "basic_math", basic_math);
+    CU_add_test(suite2, "array_addition", array_addition);
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
 
