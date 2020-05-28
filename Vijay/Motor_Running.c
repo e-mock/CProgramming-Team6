@@ -27,13 +27,13 @@ int Run_motor(int);
 //
 int Run_motor(int value)
 {
-//
-//	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
-//	   dummyItem->current = 0;
-//	   dummyItem->voltage = 0;
-//	   dummyItem->speed = 0;
-//	   dummyItem->key = -1;
-//
+
+	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
+	   dummyItem->current = 0;
+	   dummyItem->voltage = 0;
+	   dummyItem->speed = 0;
+	   dummyItem->key = -1;
+
 	switch(0)
 	{
 	case 0:
