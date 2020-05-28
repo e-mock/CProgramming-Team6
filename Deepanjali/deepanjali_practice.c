@@ -96,7 +96,7 @@ int func_date(void) {
   }
  
   for (i=0; i<10; i++) {
-    printf("mylist[%d] = %d/%d/%d\n", i, mylist[i].day, mylist[i].month, mylist[i].year);
+    printf("\nmylist[%d] = %d/%d/%d\n", i, mylist[i].day, mylist[i].month, mylist[i].year);
   }
  
   free(mylist);
@@ -110,18 +110,18 @@ int seq_sum() {
   
   if (ptr == NULL) 
   {
-     printf("Error! memory not allocated.");
+     printf("\nError! memory not allocated.\n");
      exit(0);
   }
-  printf("Building and calculating the sequence sum of the first 10 terms \n ");
+  printf("\nBuilding and calculating the sequence sum of the first 20 terms \n ");
   
-  for (i = 0; i < 10; ++i) 
+  for (i = 0; i < 20; ++i) 
   { 
     * (ptr + i) = i;
     sum += * (ptr + i);
   }
   
-  printf("Sum = %d", sum);
+  printf("\nSum = %d\n", sum);
   free(ptr);
   
   return 0;
