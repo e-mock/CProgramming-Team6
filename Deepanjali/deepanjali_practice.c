@@ -85,7 +85,7 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-        p+i = i+10;
+        *(p+i) = i+10;
         printf("Array Values : %d\n", p+i);
     }
     
