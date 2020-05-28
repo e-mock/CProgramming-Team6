@@ -78,7 +78,7 @@ int add_array(int* p, int size) {
 int func_malloc()
 {
     int i, *ptr, sum = 0;
-    
+    n = 5;
     ptr = (int*) malloc(n * sizeof(int));
     
     // if memory cannot be allocated
