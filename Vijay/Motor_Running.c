@@ -24,9 +24,11 @@ void display_value();
 int hashCode(int);
 
 int rpm ,speed1 = 0,speed2 = 0;
+extern select;
 
-int Run_motor(select)
+int Run_motor(int value)
 {
+	select = value;
 
 //	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
 	   dummyItem->current = 0;
