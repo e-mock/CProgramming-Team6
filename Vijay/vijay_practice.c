@@ -8,7 +8,7 @@ extern int Run_motor(int);
 
 int a,b;
 
-int select = M1;
+int select = 0;
 
 int hello_v() {
 
@@ -19,7 +19,7 @@ int hello_v() {
    result = max_value();
    result1 = sum(a,b);
 
-   Run_motor(select);
+   //Run_motor(select);
 
    printf("The results are %d,%d",result,result1);
 
