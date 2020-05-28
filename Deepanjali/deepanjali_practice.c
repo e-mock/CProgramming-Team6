@@ -3,6 +3,12 @@
 
 int a, b, p, q, n;
 
+typedef struct {
+  int year;
+  int month;
+  int day;
+} date;
+
 int hello_d()
 {
     printf("New World");
@@ -73,37 +79,27 @@ int add_array(int* p, int size) {
 }
 
 /*Dynamic Memory allocation*/
-
-/*malloc()*/
-int func_malloc()
-{
-    int i, *ptr,*arr[10], sum = 0;
-    
-    n = 5;
-    ptr = (int*) malloc(n * sizeof(int));
-    ptr = arr;
-    for(i = 0; i < n; ++i)
-    {
-        arr[i] = i+10;
-        printf("Array Values : %d\n", p+i);
-    }
-    
-    // if memory cannot be allocated
-    if(ptr == NULL)                     
-    {
-        printf("Error! memory not allocated.");
-        exit(0);
-    }
-    
-    for(i = 0; i < n; ++i)
-    {
-         sum = sum + *(p+i);
-    }
-    
-    printf("\nSum = %d\n", sum);
-  
-    // deallocating the memory
-    free(ptr);
-
-    return 0;
+ 
+int func_date(void) {
+ 
+  date *mylist = malloc(sizeof(date) * 10);
+ 
+  mylist[0].year = 2012;
+  mylist[0].month = 1;
+  mylist[0].day = 15;
+ 
+  int i;
+  for (i=1; i<10; i++) {
+    mylist[i].year = 2012-i;
+    mylist[i].month = 1 + i;
+    mylist[i].day = 15 + i;
+  }
+ 
+  for (i=0; i<10; i++) {
+    printf("mylist[%d] = %d/%d/%d\n", i, mylist[i].day, mylist[i].month, mylist[i].year);
+  }
+ 
+  free(mylist);
+  return 0;
 }
+ 
