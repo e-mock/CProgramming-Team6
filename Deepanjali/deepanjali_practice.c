@@ -78,7 +78,7 @@ int add_array(int* p, int size) {
 int func_malloc()
 {
     int i, *ptr, sum = 0;
-    int arr[];
+    int arr[10];
     
     n = 5;
     ptr = (int*) malloc(n * sizeof(int));
@@ -98,7 +98,7 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-        sum = *(ptr[i]) + sum;
+        sum = (arr[i]) + sum;
     }
     
     printf("\nSum = %d\n", ptr[i]);
