@@ -31,6 +31,7 @@ int math_op(int a, int b);
 int add_array(int* a, int num_elements);
 int array_addition(); 
 int func_malloc();
-int func_date(void);
+int func_date();
+int seq_sum();
 
 #endif
