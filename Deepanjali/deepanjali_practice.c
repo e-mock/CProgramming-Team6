@@ -77,14 +77,14 @@ int add_array(int* p, int size) {
 /*malloc()*/
 int func_malloc()
 {
-    int i, *ptr[10], sum = 0;
+    int i, *ptr,*arr[10], sum = 0;
     
     n = 5;
     ptr = (int*) malloc(n * sizeof(int));
-    
+    ptr = arr;
     for(i = 0; i < n; ++i)
     {
-        (p+i) = i+10;
+        arr[i] = i+10;
         printf("Array Values : %d\n", p+i);
     }
     
