@@ -1,29 +1,50 @@
 #include<stdio.h>
 #include<math.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX 50
+int top = -1, front = 0;
+int stack[MAX];
+void push(char);
+void pop();
+void add(float,float, float);
+
 int hello_c()
 {
    float a = 14.5;
    float b = 16;
    float c = 17.5;
+   float *p, *q, *r;  
+   p = (int*)malloc(sizeof(int));
+   q = (int*)malloc(sizeof(int));
+   r = (int*)malloc(sizeof(int));
+   p = &a; 
+   q = &b;
+   r = &c;
    int x = 3;
    int y = 6;
    int z = 5;
    int i, HCF, max, step, LCM;
+   int j;
+   char s[MAX] = "radar", g;
    float sum, prod, divs, mod, modu, cira, cirb;
-   float sub, diff, divi, s, area, cir, rec;
-   printf("\n The values are A = %f, B = %f, C=%f \n", a,b,c );
+   float sub, diff, divi, u, area, cir, rec;
+   printf("\n The values are A = %f, B = %f, C=%f \n", *p,*q, *r );
    printf(" \n The values of X = %d, Y = %d, Z= %d \n", x,y,z);
    
-   printf("\n The sum of all the numbers");
-   sum = a + b + c;
-   printf(" \n sum = %f \n", sum);
+   void (*fun_ptr)(float, float, float) = &add;
+   (*fun_ptr)(a, b, c);
+   
+   //printf("\n The sum of all the numbers");
+   //sum = *p + *q + *r;
+   //printf(" \n sum = %f \n", sum);
    
    printf("\n The difference of B and A ");
-   sub = b - a;
+   sub = *q - *p;
    printf("\n difference = %f", sub);
    
    printf("\n The difference of C and B");
-   diff = c - b;
+   diff = *r - *q;
    printf("\n difference = %f \n ", diff);
    
    printf(" \n The product of all numbers ");
@@ -31,11 +52,11 @@ int hello_c()
    printf("\n the product = %f \n", prod);
    
    printf("\n The division of B and A ");
-   divs = b/a;
+   divs = *q / *p;
    printf(" \n The quotient = %f  \n", divs);
    
    printf("\n The division of C and B ");
-   divi = c/b;
+   divi = *r / *q;
    printf("\n The quotient = %f \n", divi); 
    
    printf(" \n The even and Odd numbers of X, Y and Z :");
@@ -72,8 +93,8 @@ int hello_c()
    printf("\n Z is greater which is %d \n", z);
   
    printf("\n The area of triangle A, B and C");
-   s= (sum)/ 2; 
-   //area = sqrt(s * (s - a) * (s - b) * (s - c));
+   u = (sum)/ 2; 
+   //area = sqrt(u * (u - a) * (u - b) * (u - c));
    area=10.0;
    printf("\n The area = %f \n", area);
    
@@ -127,6 +148,52 @@ int hello_c()
    }
 
    printf(" LCM is=  %d \n", LCM);
+   
+   printf(" \n The program for palindrom");
+   
+    printf(" \n The string is: RADAR\n ");
+
+    for (j = 0;s[j] != '\0';j++)
+        {
+            g = s[j];
+            push(g);
+        }
+    for (j = 0;j < (strlen(s) / 2);j++)
+        {
+                if (stack[top] == stack[front])
+                {
+                    pop();
+                    front++;
+                }
+                else
+                {
+                    printf("\n %s is not a palindrome\n", s);
+                    break; 
+                }
+        }
+            
+        if ((strlen(s) / 2)  ==  front)
+        printf(" \n %s is palindrome\n",  s);
+        front  =  0;
+        top  =  -1;
+        
+        
   
   
+}
+
+void push(char a)
+{
+    top++;
+    stack[top]  =  a;
+}
+ 
+void pop()
+{
+    top--;
+}
+
+void add(float a, float b, float c ) 
+{ 
+    printf(" \n Addition is %f\n", a+b+c); 
 }
