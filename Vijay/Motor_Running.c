@@ -28,7 +28,7 @@ int rpm ,speed1 = 0,speed2 = 0;
 int Run_motor(select)
 {
 
-	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
+//	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
 	   dummyItem->current = 0;
 	   dummyItem->voltage = 0;
 	   dummyItem->speed = 0;
@@ -40,7 +40,7 @@ int Run_motor(select)
 
 		for(int i=0;i<=1000;i+100)
 		{
-			   DataItem *item = (DataItem*) malloc(sizeof(DataItem));
+//			   DataItem *item = (DataItem*) malloc(sizeof(DataItem));
 			   item->current = 10;
 			   item->voltage = 230;
 			   item->key = item->key + 1;
