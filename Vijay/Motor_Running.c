@@ -34,15 +34,16 @@ int Run_motor(int value)
 	   dummyItem->speed = 0;
 	   dummyItem->key = -1;
 
+	   item = (DataItem*) malloc(sizeof(DataItem));
+	   item->current = 10;
+	   item->voltage = 230;
+
 	switch(0)
 	{
 	case 0:
 
 		for(int i=0;i<5;i++)
 		{
-			   item = (DataItem*) malloc(sizeof(DataItem));
-			   item->current = 10;
-			   item->voltage = 230;
 			   item->key = item->key + 1;
 
 			   int hashIndex = hashCode(item->key);
