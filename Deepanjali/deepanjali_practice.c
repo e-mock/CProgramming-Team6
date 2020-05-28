@@ -3,7 +3,7 @@
 float p, q;
 float a, b;
 
-void hello_d() {
+void math_op(a,b) {
 
     /* Local variables to hold results*/
     int tst_add;
@@ -11,11 +11,10 @@ void hello_d() {
     int tst_multi;
     float tst_div;
 
-    printf("Basic mathematics operation Results\n");
+    printf("Simple Mathematics Calculations\n");
     tst_add = func_add(a, b);
     tst_sub = func_sub(a, b);
     tst_multi = func_multi(a, b);
-    tst_div = func_div(a, b);
 
     return 0;
 }
