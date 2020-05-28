@@ -38,7 +38,7 @@ int Run_motor(int value)
 	{
 	case 0:
 
-		for(int i=0;i<=10;i++)
+		for(int i=0;i<5;i++)
 		{
 			   item = (DataItem*) malloc(sizeof(DataItem));
 			   item->current = 10;
