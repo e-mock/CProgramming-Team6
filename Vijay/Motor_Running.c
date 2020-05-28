@@ -29,14 +29,14 @@ int Run_motor(int value)
 {
 
 	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
-	   dummyItem->current = 0;
-	   dummyItem->voltage = 0;
+	   dummyItem->current = 10;
+	   dummyItem->voltage = 230;
 	   dummyItem->speed = 0;
 	   dummyItem->key = -1;
 
-	   item = (DataItem*) malloc(sizeof(DataItem));
-	   item->current = 10;
-	   item->voltage = 230;
+//	   item = (DataItem*) malloc(sizeof(DataItem));
+//	   item->current = 10;
+//	   item->voltage = 230;
 
 	switch(0)
 	{
@@ -46,7 +46,7 @@ int Run_motor(int value)
 		{
 			   item->key = item->key + 1;
 
-			   int hashIndex = hashCode(item->key);
+			   //int hashIndex = hashCode(item->key);
 
 			if(hashArray[i]->current  >0 && hashArray[i]->voltage > 0)
 			{
@@ -85,10 +85,10 @@ int Run_motor(int value)
 	return 0;
 }
 
-int hashCode(int key)
-{
-   return key % SIZE;
-}
+//int hashCode(int key)
+//{
+//   return key % SIZE;
+//}
 
 //void display_value() {
 //   int i = 0;
