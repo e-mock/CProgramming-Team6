@@ -1,23 +1,23 @@
-//#include <stdio.h>
+#include <stdio.h>
 //#include <string.h>
 //#include <stdlib.h>
 //#include <stdbool.h>
 //#include "Motor_Running.h"
 //
-//#define SIZE 10
-//
-//typedef struct {
-//   int current;
-//   int voltage;
-//   int speed;
-//   int key;
-//}DataItem;
-//
-//DataItem* hashArray[SIZE];
-//DataItem* dummyItem;
-//DataItem* item;
-//
-//int Run_motor(int);
+#define SIZE 10
+
+typedef struct {
+   int current;
+   int voltage;
+   int speed;
+   int key;
+}DataItem;
+
+DataItem* hashArray[SIZE];
+DataItem* dummyItem;
+DataItem* item;
+
+int Run_motor(int);
 //
 //void display_value();
 //
@@ -25,8 +25,8 @@
 //
 //int rpm ,speed1 = 0,speed2 = 0;
 //
-//int Run_motor(int value)
-//{
+int Run_motor(int value)
+{
 //
 //	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
 //	   dummyItem->current = 0;
@@ -34,9 +34,9 @@
 //	   dummyItem->speed = 0;
 //	   dummyItem->key = -1;
 //
-//	switch(0)
-//	{
-//	case 0:
+	switch(0)
+	{
+	case 0:
 //
 //		for(int i=0;i<=10;i++)
 //		{
@@ -54,9 +54,9 @@
 //		}
 //		//display_value();
 //		rpm = hashArray[SIZE]->speed;
-//		break;
+		break;
 //
-//	case 1:
+	case 1:
 //
 //		for(int i=0;i<=10;i++)
 //		{
@@ -76,13 +76,13 @@
 //
 //		rpm = hashArray[SIZE]->speed;
 //
-//		break;
+		break;
 //
-//	default:
-//		break;
-//	}
-//	return rpm;
-//}
+	default:
+		break;
+	}
+	return 0;
+}
 //
 //int hashCode(int key)
 //{
