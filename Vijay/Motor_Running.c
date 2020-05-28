@@ -19,6 +19,10 @@ DataItem* item;
 
 int Run_motor(int);
 
+void display_value();
+
+int hashCode(int);
+
 int rpm ,speed1 = 0,speed2 = 0;
 
 int Run_motor(select)
@@ -48,7 +52,7 @@ int Run_motor(select)
 				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
 			}
 		}
-		display();
+		display_value();
 		rpm = hashArray[SIZE]->speed;
 		break;
 
@@ -68,7 +72,7 @@ int Run_motor(select)
 				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
 			}
 		}
-		display();
+		display_value();
 
 		rpm = hashArray[SIZE]->speed;
 
@@ -85,7 +89,7 @@ int hashCode(int key)
    return key % SIZE;
 }
 
-void display() {
+void display_value() {
    int i = 0;
 
    for(i = 0; i<SIZE; i++) {
