@@ -3,6 +3,11 @@
 float p, q;
 float a, b;
 
+int hello_d()
+{
+    printf("New World");
+}
+
 void math_op(a,b) {
 
     /* Local variables to hold results*/
