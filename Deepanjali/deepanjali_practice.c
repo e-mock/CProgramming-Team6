@@ -77,7 +77,7 @@ int add_array(int* p, int size) {
 /*malloc()*/
 int func_malloc()
 {
-    int i, *ptr, sum = 0;
+    int i, *ptr;
     n = 5;
     ptr = (int*) malloc(n * sizeof(int));
     
@@ -90,10 +90,10 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-        sum += *(ptr + i);
+        ptr[i] = i+10;
     }
     
-    printf("\nSum = %d\n", sum);
+    printf("\nSum = %d\n", ptr[i]);
   
     // deallocating the memory
     free(ptr);
