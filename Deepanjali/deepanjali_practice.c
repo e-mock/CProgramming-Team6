@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int a, b, p, q;
+int a, b, p, q, n;
 
 int hello_d()
 {
@@ -69,4 +70,33 @@ int add_array(int* p, int size) {
         total += p[k];  /* it is equivalent to total +=*p ;p++; */
     }
     return (total);
+}
+
+/*Dynamic Memory allocation*/
+
+/*malloc()*/
+int func_malloc()
+{
+    int i, *ptr, sum = 0;
+    
+    ptr = (int*) malloc(n * sizeof(int));
+    
+    // if memory cannot be allocated
+    if(ptr == NULL)                     
+    {
+        printf("Error! memory not allocated.");
+        exit(0);
+    }
+    
+    for(i = 0; i < n; ++i)
+    {
+        sum += *(ptr + i);
+    }
+    
+    printf("Sum = %d", sum);
+  
+    // deallocating the memory
+    free(ptr);
+
+    return 0;
 }
