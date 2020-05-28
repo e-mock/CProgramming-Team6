@@ -1,20 +1,18 @@
 #include <stdio.h>
 
-float p, q;
-float a, b;
+int a, b, p, q;
 
 int hello_d()
 {
     printf("New World");
 }
 
-void math_op(a,b) {
+int math_op(a,b) {
 
     /* Local variables to hold results*/
     int tst_add;
     int tst_sub;
     int tst_multi;
-    float tst_div;
 
     printf("Simple Mathematics Calculations\n");
     tst_add = func_add(a, b);
@@ -61,16 +59,6 @@ int func_multi(p, q)
     printf("Multiplied Value : %d\n", mul_val);
     printf("Address of Multiplied variable : %p\n", mul_ptr);
     return mul_val;
-}
-
-/*Division function*/
-void func_div(p, q)
-{
-    float div_val;
-    div_val = (p / q);
-    printf("Division : %f\n", div_val);
-    return div_val;
-
 }
 
 /*Addition of array members*/
