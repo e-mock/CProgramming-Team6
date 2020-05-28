@@ -77,9 +77,17 @@ int add_array(int* p, int size) {
 /*malloc()*/
 int func_malloc()
 {
-    int i, *ptr;
+    int i, *ptr, sum = 0;
+    int arr[];
+    
     n = 5;
     ptr = (int*) malloc(n * sizeof(int));
+    
+    for(i = 0; i < n; ++i)
+    {
+        arr[i] = i+10;
+        printf("Array Values : %d\n, arr[i]);
+    }
     
     // if memory cannot be allocated
     if(ptr == NULL)                     
@@ -90,7 +98,7 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-        ptr[i] = i+10;
+        sum = *(ptr[i]) + sum;
     }
     
     printf("\nSum = %d\n", ptr[i]);
