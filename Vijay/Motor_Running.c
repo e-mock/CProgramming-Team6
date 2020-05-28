@@ -21,10 +21,10 @@ int Run_motor(int);
 //
 //void display_value();
 //
-//int hashCode(int);
-//
-//int rpm ,speed1 = 0,speed2 = 0;
-//
+int hashCode(int);
+
+int rpm ,speed1 = 0,speed2 = 0;
+
 int Run_motor(int value)
 {
 
@@ -37,23 +37,23 @@ int Run_motor(int value)
 	switch(0)
 	{
 	case 0:
-//
-//		for(int i=0;i<=10;i++)
-//		{
-//			   DataItem *item = (DataItem*) malloc(sizeof(DataItem));
-//			   item->current = 10;
-//			   item->voltage = 230;
-//			   item->key = item->key + 1;
-//
-//			   int hashIndex = hashCode(item->key);
-//
-//			if(hashArray[hashIndex]->current  >0 && hashArray[hashIndex]->voltage > 0)
-//			{
-//				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
-//			}
-//		}
-//		//display_value();
-//		rpm = hashArray[SIZE]->speed;
+
+		for(int i=0;i<=10;i++)
+		{
+			   item = (DataItem*) malloc(sizeof(DataItem));
+			   item->current = 10;
+			   item->voltage = 230;
+			   item->key = item->key + 1;
+
+			   int hashIndex = hashCode(item->key);
+
+			if(hashArray[hashIndex]->current  >0 && hashArray[hashIndex]->voltage > 0)
+			{
+				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
+			}
+		}
+		//display_value();
+		rpm = hashArray[SIZE]->speed;
 		break;
 //
 	case 1:
@@ -83,12 +83,12 @@ int Run_motor(int value)
 	}
 	return 0;
 }
-//
-//int hashCode(int key)
-//{
-//   return key % SIZE;
-//}
-//
+
+int hashCode(int key)
+{
+   return key % SIZE;
+}
+
 //void display_value() {
 //   int i = 0;
 //
