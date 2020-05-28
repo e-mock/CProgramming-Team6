@@ -8,7 +8,7 @@ extern int Run_motor(int);
 
 int a,b;
 
-MOTOR select = M1;
+int select = M1;
 
 int hello_v() {
 

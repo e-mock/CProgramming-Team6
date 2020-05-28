@@ -17,11 +17,11 @@ DataItem* hashArray[SIZE];
 DataItem* dummyItem;
 DataItem* item;
 
-int Run_motor(MOTOR);
+int Run_motor(int);
 
 int rpm ,speed1 = 0,speed2 = 0;
 
-int Run_motor(MOTOR select)
+int Run_motor(select)
 {
 
 	   dummyItem = (DataItem*) malloc(sizeof(DataItem));

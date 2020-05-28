@@ -14,7 +14,6 @@ typedef enum
 	M2=1
 }MOTOR;
 
-MOTOR select;
 
 
 #endif /* VIJAY_MOTOR_RUNNING_H_ */
