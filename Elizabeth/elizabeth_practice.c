@@ -227,6 +227,7 @@ float temp_sensor_converter(int temp_sensor_value, bool *success)
 
    *success = true;
    return temp_celsius;
+
 }
 
 // Converts temperature from Celsius to Fahrenheit
