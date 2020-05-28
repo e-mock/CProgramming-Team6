@@ -7,7 +7,7 @@ int top = -1, front = 0;
 int stack[MAX];
 void push(char);
 void pop();
-void add(float,float, float);
+void addn(float,float, float);
 
 int hello_c()
 {
@@ -32,7 +32,7 @@ int hello_c()
    printf("\n The values are A = %f, B = %f, C=%f \n", *p,*q, *r );
    printf(" \n The values of X = %d, Y = %d, Z= %d \n", x,y,z);
    
-   void (*fun_ptr)(float, float, float) = &add;
+   void (*fun_ptr)(float, float, float) = &addn;
    (*fun_ptr)(a, b, c);
    
    //printf("\n The sum of all the numbers");
@@ -193,7 +193,7 @@ void pop()
     top--;
 }
 
-void add(float a, float b, float c ) 
+void addn(float a, float b, float c ) 
 { 
     printf(" \n Addition is %f\n", a+b+c); 
 }
