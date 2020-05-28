@@ -9,6 +9,12 @@ void basic_math(void)
     CU_ASSERT(func_multi(54, 30) == 1620);
 }
 
+int array_addition() {
+    int Tab[5] = { 100, 220, 37, 16, 98 };
+    printf("Total summation is %d\n", add_array(Tab, 5));
+    return 0;
+}
+
 int main() {
 
     CU_initialize_registry();
