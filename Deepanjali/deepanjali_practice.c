@@ -96,7 +96,7 @@ int func_date(void) {
   }
  
   for (i=0; i<10; i++) {
-    printf("\nmylist[%d] = %d/%d/%d\n", i, mylist[i].day, mylist[i].month, mylist[i].year);
+    printf("mylist[%d] = %d/%d/%d\n", i, mylist[i].day, mylist[i].month, mylist[i].year);
   }
  
   free(mylist);
