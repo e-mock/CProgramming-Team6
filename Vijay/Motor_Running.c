@@ -47,9 +47,9 @@ int Run_motor(int value)
 
 			   int hashIndex = hashCode(item->key);
 
-			if(hashArray[hashIndex]->current  >0 && hashArray[hashIndex]->voltage > 0)
+			if(hashArray[i]->current  >0 && hashArray[i]->voltage > 0)
 			{
-				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
+				hashArray[i]->speed = hashArray[i]->speed + 100;
 			}
 		}
 		//display_value();
