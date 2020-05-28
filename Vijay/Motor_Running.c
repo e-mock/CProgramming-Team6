@@ -48,7 +48,6 @@ int Run_motor(int value)
 
 		}
 		display_value();
-		rpm = hashArray[SIZE]->speed;
 		break;
 	case 1:
 
@@ -70,7 +69,6 @@ int Run_motor(int value)
 
 		}
 		display_value();
-		rpm = hashArray[SIZE]->speed;
 		break;
 
 	default:
