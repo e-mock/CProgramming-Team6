@@ -86,7 +86,7 @@ int func_malloc()
     for(i = 0; i < n; ++i)
     {
         arr[i] = i+10;
-        printf("Array Values : %d\n, arr[i]);
+        printf("Array Values : %d\n", arr[i]);
     }
     
     // if memory cannot be allocated
