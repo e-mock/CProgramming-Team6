@@ -23,11 +23,13 @@ int main() {
     CU_pSuite suite2 = CU_add_suite("array_addition", 0, 0);
     CU_pSuite suite3 = CU_add_suite("func_date", 0, 0);
     CU_pSuite suite4 = CU_add_suite("seq_sum", 0, 0);
+    CU_pSuite suite5 = CU_add_suite("func_arr_dyn", 0, 0);
 
     CU_add_test(suite1, "basic_math", basic_math);
     CU_add_test(suite2, "array_addition", array_addition);
     CU_add_test(suite3, "func_date", func_date);
     CU_add_test(suite3, "seq_sum", seq_sum);
+    CU_add_test(suite3, "func_arr_dyn", func_arr_dyn);
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
 
