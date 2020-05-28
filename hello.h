@@ -33,5 +33,6 @@ int array_addition();
 int func_malloc();
 int func_date();
 int seq_sum();
+int func_arr_dyn();
 
 #endif
