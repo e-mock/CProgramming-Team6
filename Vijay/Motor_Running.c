@@ -48,6 +48,7 @@ int Run_motor(select)
 				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
 			}
 		}
+		display();
 		rpm = hashArray[SIZE]->speed;
 		break;
 
@@ -67,6 +68,7 @@ int Run_motor(select)
 				hashArray[hashIndex]->speed = hashArray[hashIndex]->speed + 100;
 			}
 		}
+		display();
 
 		rpm = hashArray[SIZE]->speed;
 
@@ -81,5 +83,19 @@ int Run_motor(select)
 int hashCode(int key)
 {
    return key % SIZE;
+}
+
+void display() {
+   int i = 0;
+
+   for(i = 0; i<SIZE; i++) {
+
+      if(hashArray[i] != NULL)
+         printf(" (%d,%d)",hashArray[i]->key,hashArray[i]->speed);
+      else
+         printf(" ~~ ");
+   }
+
+   printf("\n");
 }
 

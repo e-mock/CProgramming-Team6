@@ -20,10 +20,10 @@
 int main() {
 
    printf("Hello World!");
-   hello_c();
-   hello_d();
-   hello_e();
-   hello_g();
+//   hello_c();
+//   hello_d();
+//   hello_e();
+//   hello_g();
    hello_v();
    
    return 0;
