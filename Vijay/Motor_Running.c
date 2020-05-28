@@ -19,16 +19,14 @@ DataItem* item;
 
 int Run_motor(int);
 
-void display_value();
+//void display_value();
 
 int hashCode(int);
 
 int rpm ,speed1 = 0,speed2 = 0;
-extern int select;
 
 int Run_motor(int value)
 {
-	select = value;
 
 //	   dummyItem = (DataItem*) malloc(sizeof(DataItem));
 	   dummyItem->current = 0;
@@ -36,7 +34,7 @@ int Run_motor(int value)
 	   dummyItem->speed = 0;
 	   dummyItem->key = -1;
 
-	switch(select)
+	switch(0)
 	{
 	case 0:
 
