@@ -11,7 +11,7 @@ void basic_math(void)
 
 int array_addition() {
     int Tab[5] = { 100, 220, 37, 16, 98 };
-    printf("Total summation is %d\n", add_array(Tab, 5));
+    printf("\nTotal summation is %d\n", add_array(Tab, 5));
     return 0;
 }
 
