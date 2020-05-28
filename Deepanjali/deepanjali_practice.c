@@ -97,7 +97,7 @@ int func_malloc()
     
     for(i = 0; i < n; ++i)
     {
-         sum += *(p+i);
+         sum = sum + *(p+i);
     }
     
     printf("\nSum = %d\n", sum);
