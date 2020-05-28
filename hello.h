@@ -26,6 +26,6 @@ bool readings_to_temp_c_and_f_arrays(int *temp_sesnor_readings_ptr, float *temp_
 int math_op(int a, int b);
 int add_array(int* a, int num_elements);
 int array_addition(); 
-
+int func_malloc();
 
 #endif
