@@ -24,7 +24,7 @@ void display_value();
 int hashCode(int);
 
 int rpm ,speed1 = 0,speed2 = 0;
-extern select;
+extern int select;
 
 int Run_motor(int value)
 {
@@ -40,7 +40,7 @@ int Run_motor(int value)
 	{
 	case 0:
 
-		for(int i=0;i<=1000;i+100)
+		for(int i=0;i<=10;i++)
 		{
 //			   DataItem *item = (DataItem*) malloc(sizeof(DataItem));
 			   item->current = 10;
@@ -60,7 +60,7 @@ int Run_motor(int value)
 
 	case 1:
 
-		for(int i=0;i<=1000;i+100)
+		for(int i=0;i<=10;i++)
 		{
 			   DataItem *item = (DataItem*) malloc(sizeof(DataItem));
 			   item->current = 10;
