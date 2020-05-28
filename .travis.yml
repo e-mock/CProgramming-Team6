@@ -38,6 +38,6 @@ install:
 script:  
 
   - echo "Reached Script Section - Hello"
-  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/*.c hello_world.c -o output -lm
+  - gcc   	Vijay/*.c hello_world.c -o output -lm
   - ./output
   - size output
