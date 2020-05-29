@@ -18,11 +18,11 @@ typedef struct Node
    struct Node *next_node_addr;
 } Node;
 
-void add_ll_element(int value, Node *linked_list, int *filled_size);
-void print_ll(Node linked_list[], int *filled_size);
-void remove_all_nodes_with_value(int value_to_remove, Node linked_list[], int *filled_size);
+void add_ll_element(int value, Node *linked_list, int *filled_size, int* filled_now);
+void print_ll(Node linked_list[], int *filled_size, int* filled_now);
+void remove_all_nodes_with_value(int value_to_remove, Node linked_list[], int *filled_size, int* filled_now);
 
-void add_ll_element(int value, Node *linked_list, int *filled_size)
+void add_ll_element(int value, Node *linked_list, int *filled_size, int* filled_now)
 {
    if (*filled_size == 0)
    {
@@ -34,6 +34,7 @@ void add_ll_element(int value, Node *linked_list, int *filled_size)
       *(linked_list) = node_to_add;
 
       *filled_size = *filled_size + 1;
+      *filled_now = *filled_now + 1;
    }
    else if (*filled_size < MAX_LINKED_LIST_LENGTH)
    {
@@ -65,9 +66,9 @@ void add_ll_element(int value, Node *linked_list, int *filled_size)
 }
 
 void remove_all_nodes_with_value(int value_to_remove, Node linked_list[],
-                                 int *filled_size)
+                                 int *filled_size, int* filled_now)
 {
-   if (filled_size > 0)
+   if (filled_now > 0)
    {
       Node first_node = *(linked_list);
       Node *current_node_addr;
@@ -114,7 +115,7 @@ void remove_all_nodes_with_value(int value_to_remove, Node linked_list[],
             *(next_node.this_node_addr) = next_node;
 
             next_node_addr = next_node.next_node_addr;
-            *filled_size = *filled_size - 1;
+            *filled_now = *filled_now - 1;
          }
       }
    }
@@ -124,11 +125,11 @@ void remove_all_nodes_with_value(int value_to_remove, Node linked_list[],
    }
 }
 
-void print_ll(Node linked_list[], int *filled_size)
+void print_ll(Node linked_list[], int *filled_size, int* filled_now)
 {
    int i = 0;
    Node temp_node;
-   printf("Printing linked list with %d elements\n", *filled_size);
+   printf("Printing linked list with %d elements and %d elements that were ever filled\n", *filled_now, *filled_size);
 
    //naive solution assuming elements in order
    for (i = 0; i < *filled_size; i++)
@@ -138,7 +139,7 @@ void print_ll(Node linked_list[], int *filled_size)
              temp_node.value, temp_node.this_node_addr, temp_node.next_node_addr);
    }
 
-   if (filled_size > 0)
+   if (filled_now > 0)
    {
       Node first_node = *(linked_list);
       Node *next_node = &first_node; //purposely setting this way to print first element in while loop
@@ -161,27 +162,31 @@ void print_ll(Node linked_list[], int *filled_size)
 int ll_practice()
 {
    Node linked_list[MAX_LINKED_LIST_LENGTH];
+
+   //filled_size is the number of elements that were ever filled
+   //filled_now is the number of elements currently filled (used for checking if there is an element to remove)
    int filled_size = 0;
+   int filled_now = 0;
 
-   add_ll_element(1, linked_list, &filled_size);
-   add_ll_element(2, linked_list, &filled_size);
-   add_ll_element(3, linked_list, &filled_size);
-   add_ll_element(4, linked_list, &filled_size);
-   add_ll_element(5, linked_list, &filled_size);
+   add_ll_element(1, linked_list, &filled_size, &filled_now);
+   add_ll_element(2, linked_list, &filled_size, &filled_now);
+   add_ll_element(3, linked_list, &filled_size, &filled_now);
+   add_ll_element(4, linked_list, &filled_size, &filled_now);
+   add_ll_element(5, linked_list, &filled_size, &filled_now);
 
-   print_ll(linked_list, &filled_size);
+   print_ll(linked_list, &filled_size, &filled_now);
 
-   remove_all_nodes_with_value(2, linked_list, &filled_size);
+   remove_all_nodes_with_value(2, linked_list, &filled_size, &filled_now);
 
-   print_ll(linked_list, &filled_size);
+   print_ll(linked_list, &filled_size, &filled_now);
 
-   remove_all_nodes_with_value(5, linked_list, &filled_size);
+   remove_all_nodes_with_value(5, linked_list, &filled_size, &filled_now);
 
-   print_ll(linked_list, &filled_size);
+   print_ll(linked_list, &filled_size, &filled_now);
 
-   remove_all_nodes_with_value(4, linked_list, &filled_size);
-   //   remove_all_nodes_with_value(1, linked_list, &filled_size);
-   remove_all_nodes_with_value(3, linked_list, &filled_size);
+   remove_all_nodes_with_value(4, linked_list, &filled_size, &filled_now);
+   //   remove_all_nodes_with_value(1, linked_list, &filled_size, &filled_now);
+   remove_all_nodes_with_value(3, linked_list, &filled_size, &filled_now);
 
    return 0;
 }
