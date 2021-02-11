@@ -43,9 +43,9 @@ script:
   - size output
 
   - echo "Reached Script Section - Elizabeth CUnit"
-  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/*.c Elizabeth/elizabeth_test.c -o cunit_democode -lcunit
-  - ./cunit_democode
-  - size cunit_democode
+  - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/*.c Elizabeth/elizabeth_test.c -o cunit_democode_e -lcunit
+  - ./cunit_democode_e
+  - size cunit_democode_e
 
   - echo "Reached Script Section - Deepa CUnit"
   - gcc   	Chandan/chandan_practice.c Deepanjali/deepanjali_practice.c Elizabeth/elizabeth_practice.c Gopi/gopi_practice.c Vijay/*.c Deepanjali/deepanjali_test.c -o cunit_democode_deepa -lcunit
